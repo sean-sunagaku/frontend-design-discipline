@@ -1,4 +1,4 @@
 interface:
   display_name: "Review Refine Loop"
   short_description: "Create, review, refine in tight loops"
-  default_prompt: "Use $review-refine-loop after $frontend-design-director to improve this artifact through repeated review and revision cycles, including $frontend-structure-auditor for tree-level layout checks when needed."
+  default_prompt: "Use $review-refine-loop after $frontend-design-director to improve this artifact through repeated review and revision cycles, including $frontend-structure-auditor for bare text nodes, meaningful line breaks, and tree-level layout checks when needed."

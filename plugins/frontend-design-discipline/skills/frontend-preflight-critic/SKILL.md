@@ -39,11 +39,13 @@ Unless the user explicitly narrows or overrides the scope, assume all of the fol
   - font direction
   - opening-zone scale budget
   - zone line budget
-- width and measure strategy
-- spacing budget and text cluster structure
-- structural audit discipline and section completion criteria
-- structural audit routing to `$frontend-structure-auditor` when tree-level structure is fragile
-- primary action stance
+  - width and measure strategy
+  - spacing budget and text cluster structure
+  - structural audit discipline and section completion criteria
+  - structural audit routing to `$frontend-structure-auditor` when tree-level structure is fragile
+  - text placement discipline and meaningful line-break handling
+  - repeated-row rhythm, divider quietness, and focal emphasis inside sequences
+  - primary action stance
 - the output must follow the skill's PASS/FAIL contract with remaining issues only
 
 This means a short parent prompt such as:
@@ -101,13 +103,21 @@ Mark it NG if:
 - the packet allows a section to be considered complete even if overflow still exists
 - the packet does not require structural audit results before screenshot review
 - the packet does not require the final handoff to include both the design and the audit result
+- the packet allows bare text nodes instead of explicit frames or clusters
+- the packet relies on manual line breaks or awkward rescue breaks for headings, labels, or helper lines
 - the font direction is generic, unintentional, or unsupported by the intended mood
 - the primary opening-zone plan would likely require an oversized headline to feel important
 - the headline would overpower the brand mark, supporting copy, or CTA cluster
+- the packet does not reserve a clear left-side inset for the opening copy cluster, so the hero could feel pinned to the edge
+- the opening copy cluster is likely to sit too close to the dominant visual plane, rail, or surface boundary even if it does not overlap
 - the secondary zones have no explicit line budget and will likely collapse into awkward wrapped columns
 - the packet does not say which zones should widen and which should stay narrow
 - a text-heavy or working zone is over-constrained to a narrow measure even though the surface clearly wants more horizontal room
 - the packet does not say which text-heavy areas must be built as one cluster rather than as separate text placements
+- repeated steps, rails, proof rows, or numbered sequences do not define one shared rhythm for number, title, and body starts
+- the packet leaves title columns too wide in repeated rows and gives the body no room to breathe
+- the packet does not say whether one row should hold slightly more emphasis, so repeated rows may flatten into visual monotony
+- divider lines in repeated rows are likely to read louder than the content itself
 - heading/body/action spacing is still implied instead of locked as a spacing budget
 - the packet never states where the quiet band or breathing corridor should sit between side-by-side masses
 - the likely build path depends on manual line breaks in headings, labels, or buttons instead of healthier width, measure, or copy edits
@@ -157,6 +167,8 @@ Do not emit the build-gate verdict from the packet-authoring thread.
 - Treat plans that begin from floating text and rectangles instead of frames, rows, cards, and clusters as structurally weak.
 - Treat missing structural audit rules, section completion criteria, or overflow gates as first-order design defects.
 - Treat missing routing to a dedicated structural reviewer as a first-order defect when the build is tree-fragile.
+- Treat bare text nodes and accidental line endings as first-order defects when the packet still expects a stable UI build.
+- Treat unresolved repeated-row rhythm as a structural defect, not as polish.
 - Treat a plan that allows screenshots before structural audit as structurally incomplete.
 - Treat any section with overflow as incomplete until the overflow is resolved.
 - Treat uncontrolled wrapping and missing line budgets as structural defects, not typography cleanup.
@@ -164,6 +176,7 @@ Do not emit the build-gate verdict from the packet-authoring thread.
 - Treat text-fit risk in secondary zones as a structural defect, not as last-minute cleanup in Figma.
 - Treat missing text-cluster structure and missing section-level inspection plans as structural defects, not optional QA.
 - Treat missing breathing corridors between side-by-side masses as a structural defect, not as taste.
+- Treat a cramped opening copy inset as a structural defect, not as subjective hero polish.
 - Treat forced manual line breaks as a structural defect when they are being used to rescue a weak measure.
 
 ## Subagent Guardrail
@@ -189,3 +202,4 @@ If the packet is incomplete, review the available material anyway and call missi
 - `P2 The primary action stance is still generic and does not tell the builder how the flow should close emotionally. Define whether the commit should feel calm, decisive, exclusive, or invitational.`
 - `P2 The packet still assumes the closing copy and CTA can be placed ad hoc inside the final zone. Define one CTA cluster, its spacing budget, and the screenshot crops that will be used to verify it after the first draft.`
 - `P2 The support zone names the left and right masses but never reserves a quiet band between them, so the likely outcome is visual kissing rather than calm separation. Define the breathing corridor explicitly and protect it in the crop review plan.`
+- `P2 The opening zone names the text column and visual plane, but it never reserves a real left inset for the copy cluster. Define the minimum inset and the crop that will verify the hero does not feel edge-hugging.`

@@ -94,6 +94,7 @@ It should also lock width and measure strategy so zones that need more horizonta
 It should explicitly reserve breathing corridors between side-by-side masses so "not overlapping" is not mistaken for "visually calm."
 The packet should also lock structural audit discipline so each section is only complete when child bounds stay within parent bounds, overflow is gone, and the structure audit result is written down before screenshot review.
 If the artifact is structurally fragile, the packet should also name `$frontend-structure-auditor` as the dedicated reviewer for that pass.
+It should also say that bare text nodes are not acceptable and that line endings must be meaningful rather than rescued by a manual break.
 
 ## Standard Cycle
 
@@ -109,6 +110,7 @@ Inspect the artifact directly before changing anything.
 - additional screenshots for text-heavy or bounded clusters
 - when a zone feels cramped, compare the crop against the unused horizontal space around it and ask whether widening is the real fix
 - when a side-by-side layout feels tense, inspect whether the gap is a real breathing corridor or only nominal spacing
+- when the opening zone feels cramped, inspect whether the copy cluster is pinned to the left edge instead of truly inset
 - Typical cluster crops include:
   - hero/opening text cluster
   - support copy plus nearby proof object
@@ -121,6 +123,7 @@ Do not start revising from memory.
 Do not sign off on visual stability from a full-page screenshot alone when a tighter crop would reveal overlap, edge touch, or stranded text.
 Do not default to shrinking type, cutting copy, or stacking more rows if the tighter crop shows the zone simply needs more width.
 Do not call a zone safe just because objects technically do not overlap; if they read as kissing or visually colliding, treat that as a real blocker.
+Do not treat a bare text node as acceptable structure.
 Do not accept forced manual line breaks as a normal fix when widening, regrouping, or rewriting would produce a more natural result.
 
 ### Step 2: Produce a bounded issue list
@@ -179,6 +182,10 @@ For frontend and design tasks, route the review to the narrowest critic skill th
 - copy, wrapping, and helper text noise -> `$frontend-copy-critic`
 - local overlap, breathing room, and zone text fit -> `$frontend-zone-fit-critic`
 - clipping, spacing, contrast, and UI stability -> `$frontend-ui-auditor`
+
+Use `$frontend-composition-critic` when the problem is repeated-row rhythm across a section.
+Use `$frontend-zone-fit-critic` when the problem is a local step row, title column, divider, or body measure inside one crop.
+Use `$frontend-zone-fit-critic` or `$frontend-composition-critic` when the problem is a cramped opening copy cluster or weak hero inset.
 
 After the first real draft of a text-heavy or bounded-copy surface, at least one `$frontend-zone-fit-critic` or `$frontend-ui-auditor` pass is mandatory before final signoff.
 Prefer `$frontend-zone-fit-critic` when the risk is local crop safety rather than whole-surface implementation stability.

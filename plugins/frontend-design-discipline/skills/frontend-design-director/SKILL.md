@@ -190,6 +190,7 @@ For Figma, default to:
 - absolute positioning only for decoration, annotation accents, or deliberate hero artwork
 - section -> group frame -> row or column frame -> text cluster is the default build order
 - a board or surface should still be decomposed into structured children such as timeline rows, cards, strips, rails, notes, and copy clusters
+- standalone text nodes are NG; every text layer must belong to an explicit frame, wrapper, row, column, card, note group, or text cluster
 - text should not be scattered as standalone layers when it could belong to one card, row, note group, strip, or heading cluster
 
 For HTML/frontend, default to:
@@ -212,6 +213,8 @@ Reject plans where:
 - a board-like zone is described as a surface but not decomposed into rows, cards, strips, rails, notes, or clusters
 - multiple primary elements in the same zone would need to overlap because no structural rows, cards, or groups were defined
 - the likely HTML/frontend build would rely on free-positioned blocks instead of a stable section / row / cluster hierarchy
+- the plan assumes bare text nodes can be placed first and wrapped later
+- the plan relies on manual line breaks to end a heading, label, or helper line at an awkward phrase boundary
 
 If the layout would become more stable by adding one more structural parent frame or wrapper, do that early instead of fixing drift later.
 If two or more elements can be expressed as one stable cluster, card, row, or note group, prefer that structure over separate placements.
@@ -244,6 +247,7 @@ State:
 
 - target line count for the headline on desktop
 - target width of the text column
+- minimum inset between the opening copy cluster and the left edge of its parent surface
 - whether the opening visual or the headline is the louder element
 - what must remain comfortably visible in the first view besides the headline
 
@@ -251,6 +255,7 @@ Reject plans where:
 
 - the headline becomes the entire composition
 - supporting copy and CTA are pushed into a cramped leftover corner
+- the opening copy cluster sits close enough to the left edge that it feels pinned, crowded, or visually tense
 - the brand mark becomes visually negligible next to the headline
 - the opening zone only works because the headline is huge
 
@@ -329,6 +334,8 @@ At minimum, define:
 - text cluster to nearby object clearance
 - safe padding inside bounded copy areas
 - breathing corridor between major side-by-side masses
+- opening copy cluster inset from the nearest left edge or dominant visual-plane boundary
+- repeated-row rhythm for steps, timelines, proof items, or numbered sequences
 
 Prefer structural spacing over manual cleanup.
 
@@ -340,6 +347,9 @@ Reject plans where:
 - the closest visual object can drift into the text area with no reserved clearance
 - the design relies on a mathematically small gap that will read as touching, kissing, or visually colliding
 - side-by-side text and visual masses have no intentional quiet band between them
+- the opening copy cluster has no declared left-side inset, so the hero could feel cramped even without literal overlap
+- repeated steps or numbered rows have inconsistent top rhythm, title starts, or body starts
+- divider lines inside repeated rows are so strong that the list feels like product UI chrome instead of calm structure
 
 If a zone contains a closing cluster, note, proof item, or CTA stack, define it as one cluster with one spacing system rather than as separate floating text layers.
 
@@ -353,6 +363,8 @@ State:
 - which zones should expand horizontally
 - the target text measure for long-form reading areas
 - the minimum usable width for working, proof, or visual zones
+- whether the opening copy cluster should widen, move inward, or both before adding more line breaks
+- the target width split for repeated step rows, including whether the label/title column should shrink to give the body more room
 
 Reject plans where:
 
@@ -360,6 +372,9 @@ Reject plans where:
 - a zone is forced into 3-line or 4-line wrapping simply because it was never allowed to widen
 - the page leaves obvious unused horizontal space while text-heavy areas become vertically cramped
 - proof objects, rails, or cards collide with copy because the layout under-allocates width
+- the title column inside repeated rows steals width from the body and causes avoidable wrapping
+- repeated rows have noticeably different right edges or line lengths without an intentional reason
+- the opening zone leaves the copy cluster pressed against the left edge while unused width remains elsewhere in the same zone
 
 If widening a zone would clearly solve wrapping, overlap, or visual tension, choose widening first instead of shrinking text or stacking more rows.
 If a side-by-side zone needs calm, reserve an explicit breathing corridor instead of trusting incidental whitespace.
@@ -408,6 +423,7 @@ Required structural rules:
 - text-containing parent frames should default to `HUG`
 - rows or cards that may grow with body copy should use `counterAxisSizingMode = AUTO`
 - absolute positioning is allowed only for decoration
+- text is never left as a bare canvas node; it must live inside a frame or text cluster
 - after each section is created, verify `child bounds <= parent bounds`
 - if one overflow exists, that section is incomplete
 - do not move to screenshot verification until the structure audit result is written down
@@ -418,6 +434,7 @@ Prohibited actions:
 - fixed-height text-containing frames
 - meaningful absolute positioning
 - scattered `text` and `rectangle` nodes without a structural parent
+- bare text nodes waiting to be wrapped later
 - moving on to review while overflow remains
 
 Deliverables:
@@ -434,6 +451,8 @@ Completion condition:
 - the section is complete only when no overflow remains
 - the section is complete only when absolute positioning is decorative only
 - the section is complete only when screenshots show no clipping or cut-off content
+- the section is complete only when all text lives inside explicit frames or clusters
+- the section is complete only when line endings are intentional rather than awkward rescue breaks
 
 Do not let the next section begin until the current section has a PASS on these structural checks.
 
@@ -451,6 +470,7 @@ Default bar:
 Examples of cluster-level crops:
 
 - hero text column
+- opening copy cluster with the left edge and nearest visual mass both visible
 - support copy plus nearby proof object
 - detail copy cluster versus decision thread
 - final CTA closing cluster
@@ -496,11 +516,15 @@ Good:
 
 - `The first viewport cannot be mistaken for a generic task-management SaaS page.`
 - `The opening zone must read as one composition, not two equal columns in negotiation.`
+- `The opening copy cluster must feel intentionally inset, never pinned to the left edge or trapped against the visual plane.`
 - `Every secondary zone must have a dominant subject, not a row of similar blocks.`
 - `The working zone must reveal what the product lets you do, not just what it says.`
 - `The commit zone must feel deliberate, not like a stray button.`
 - `No text cluster may overlap, visually collide with, or nearly touch a nearby object in section-level review.`
 - `Primary reading content must live inside stable structural containers, not loose absolute placements.`
+- `No text may be left as a standalone node outside a frame or cluster.`
+- `No heading, label, or helper line may end with an accidental-looking break.`
+- `Repeated step rows must share one clear rhythm: aligned starts, calm divider weight, and body widths that do not create accidental emphasis.`
 
 ### 20. Build Instruction
 

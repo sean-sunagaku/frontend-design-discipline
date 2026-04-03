@@ -35,6 +35,7 @@ Default inspection order:
 Examples of cluster-level crops:
 
 - hero text column
+- hero opening copy cluster with the left edge visible
 - support copy versus nearby proof object
 - detail copy cluster beside a rail or thread
 - final CTA cluster
@@ -65,6 +66,7 @@ Mark it NG if:
 - a full-page view looks acceptable but a zone or cluster crop reveals overlap, collision, or cramped spacing
 - bounded areas such as cards, mockups, and rails look one line away from failure
 - text appears to slip outside a frame, box, pill, or button, even slightly
+- a text node appears as a loose standalone layer instead of being nested in a real parent frame
 - text and nearby objects do not overlap technically but still read as touching, kissing, or visually colliding
 - secondary-zone text only fits because the box is overfilled and visually tense
 - headings, body copy, captions, and actions do not read as one stable cluster
@@ -76,6 +78,7 @@ Mark it NG if:
 - the obvious fix is to widen the zone, column, or cluster area, but the layout instead keeps squeezing text vertically
 - the screen keeps large amounts of empty horizontal space while text-heavy areas wrap, collide, or crowd each other
 - side-by-side masses have no calm breathing corridor between them, so the layout reads crowded even with nominal spacing
+- the opening copy cluster is technically inside the hero but sits so close to the left edge that the first view still reads cramped
 - contrast is too weak for routine reading
 - headline scale is so aggressive that the opening-zone balance depends on luck
 - secondary-zone text blocks rely on narrow columns and overwrapping to fit
@@ -106,10 +109,12 @@ Each issue must explain:
 - If a box looks like it needs one more line of padding or one less line of text, fail it now rather than calling it acceptable.
 - If a text-heavy zone only becomes readable after mentally separating pieces, fail it and ask for a more stable cluster.
 - If the surface looks composed from loose text and shapes instead of real parent structure, fail it before polish and ask for a structural rebuild.
+- If a line ends in an obviously accidental way, fail it and ask for a wider measure, better cluster, or rewrite instead of a manual break.
 - If a fixed-height text cluster is the reason the copy looks cramped, fail it and ask for HUG or AUTO sizing before polish.
 - If the screen clearly needs a structural audit to prove overflow is gone, fail it until that audit exists.
 - If widening the available measure would clearly stabilize the zone, prefer that fix before shrinking type or forcing additional rows.
 - If the gap is technically present but still reads as tense or kissing, fail it and ask for a clearer breathing corridor.
+- If the opening copy cluster feels pinned to the left edge, fail it and ask for a clearer left inset before touching typography.
 
 ## Subagent Use
 
@@ -133,6 +138,7 @@ Sample prompt:
 - `P1 The right rail is readable on desktop but too fragile for narrower widths. Reduce copy load or reflow the structure before implementation.`
 - `P1 The final CTA looks acceptable in the full-page view, but the section crop shows the body and action cluster colliding with nearby elements. Rebuild the closing cluster as one stacked unit and reserve more clearance.`
 - `P1 The copy and proof object do not overlap, but the gap is so small that the section still reads as visually colliding. Increase the breathing corridor or widen the zone before trying smaller type changes.`
+- `P2 The hero text is readable, but the opening copy cluster is pinned so close to the left edge that the first view still feels cramped. Increase the inset or move the cluster inward before polishing the type.`
 - `P2 Contrast in the idle state is too low for routine scanning. Raise value contrast without changing the whole palette.`
 
 ## Not Your Job

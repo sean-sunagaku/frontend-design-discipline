@@ -1,4 +1,4 @@
 interface:
   display_name: "Frontend UI Auditor"
   short_description: "Audit readability, spacing, and UI fit"
-  default_prompt: "Use $frontend-ui-auditor to review this UI or proposed layout structure for readability, spacing, responsive fit, and implementation-level issues, and hand structural hierarchy problems to $frontend-structure-auditor."
+  default_prompt: "Use $frontend-ui-auditor to review this UI or proposed layout structure for readability, spacing, responsive fit, bare text nodes, opening copy inset pressure, and implementation-level issues, and hand structural hierarchy problems to $frontend-structure-auditor."

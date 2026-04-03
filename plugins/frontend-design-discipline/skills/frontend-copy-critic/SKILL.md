@@ -43,6 +43,7 @@ Mark it NG if:
 - the copy looks manually broken into lines instead of being set by a healthier measure
 - labels or notes wrap at awkward linguistic points
 - Japanese copy feels mechanically wrapped rather than intentionally set
+- a text block is left as a loose standalone layer instead of being attached to a cluster or frame
 - filler copy weakens the intended hierarchy
 - the plan relies on multiple explanatory sentences because the visual direction is too weak
 
@@ -66,6 +67,7 @@ Each issue must state:
 - Prefer deletion over rewriting when the text is unnecessary.
 - Treat awkward line breaks as a real defect.
 - Treat hard-coded or forced line breaks as defects unless they are clearly intentional editorial setting.
+- Treat standalone text blocks as a layout smell when the UI expects an explicit cluster.
 - If one sentence could be cut with no loss, call that out.
 - If a zone lacks an explicit line budget, ask for one implicitly by failing uncontrolled wrapping.
 - Treat text escaping or nearly escaping a bounded area as both a copy and fit failure, not as harmless polish.

@@ -1,4 +1,4 @@
 interface:
   display_name: "Frontend Design Director"
   short_description: "Lock the visual bar before building"
-  default_prompt: "Use $frontend-design-director to turn this brief into a strict design-direction packet before any Figma or frontend build begins, and route structural fragility to $frontend-structure-auditor when needed."
+  default_prompt: "Use $frontend-design-director to turn this brief into a strict design-direction packet before any Figma or frontend build begins, keep text inside explicit frames or clusters, reserve a real inset for the opening copy cluster so the hero does not feel edge-hugging, and route structural fragility to $frontend-structure-auditor when needed."
