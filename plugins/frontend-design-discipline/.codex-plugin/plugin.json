@@ -34,6 +34,7 @@
     "defaultPrompt": [
       "Treat explicitly named companion tools and skills as mandatory, not optional. If the user names Figma, Frontend Design Discipline, and Frontend Skill together, use all of them in one workflow.",
       "Use $frontend-design-director first to turn this brief into a strict build packet before any Figma or frontend work begins.",
+      "Build with real structure, not loose placement: prefer auto layout, nested frames, stacks, grids, and semantic containers for primary reading content.",
       "Use $frontend-preflight-critic as the first independent review on the proposed direction when delegation is available.",
       "Use Frontend Design Discipline as a reviewer, not just a builder. Keep reviewer outputs free of tool-availability or process chatter.",
       "After the build exists, run $review-refine-loop with the narrowest critic skill until the artifact passes the stated bar."
