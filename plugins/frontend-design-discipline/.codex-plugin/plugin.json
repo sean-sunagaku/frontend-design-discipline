@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "Frontend Design Discipline",
     "shortDescription": "Focused reviewer skills for frontend and UI quality",
-    "longDescription": "A Codex plugin that bundles focused reviewer skills for frontend composition, brand signal, copy quality, UI stability, and iterative review-refine loops.",
+    "longDescription": "A Codex plugin that bundles focused reviewer skills for frontend composition, brand signal, copy quality, UI stability, and iterative review-refine loops. When this plugin is explicitly invoked, at least one critic or review-refine pass is expected before the work is considered done, and the first independent review should prefer a dedicated subagent when delegation is available.",
     "developerName": "babashunsuke",
     "category": "Productivity",
     "capabilities": [
@@ -32,9 +32,10 @@
     "privacyPolicyURL": "https://github.com/sean-sunagaku/frontend-design-discipline",
     "termsOfServiceURL": "https://github.com/sean-sunagaku/frontend-design-discipline",
     "defaultPrompt": [
-      "Review this UI for composition, hierarchy, and visual balance.",
-      "Audit whether this screen communicates the intended brand clearly.",
-      "Run a review-refine loop on this Figma frame until it passes."
+      "Use Frontend Design Discipline as a reviewer, not just a builder. Run at least one critic pass before concluding, and prefer the first pass to be an independent subagent review when delegation is available.",
+      "If the user explicitly asks for subagent review or independent critique, attempt delegation first and keep reviewer outputs free of tool-availability or process chatter.",
+      "Review this UI for composition, hierarchy, and visual balance, then list only the remaining issues.",
+      "Run a review-refine loop on this Figma frame until it passes the stated bar."
     ],
     "brandColor": "#E5A534"
   }
