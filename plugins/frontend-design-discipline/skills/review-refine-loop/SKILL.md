@@ -69,6 +69,10 @@ For visually led landing pages, Figma screens, or premium frontend work:
 - run `$frontend-design-director` first
 - compile the brief into a build packet
 - send that packet to `$frontend-preflight-critic` before the first draft when delegation is available
+- treat that independent preflight verdict as the build gate
+- do not let the same thread that authored the packet declare it build-ready unless delegation was checked and found unavailable or disallowed
+
+The parent thread does not need to restate the full reviewer script each time. A short handoff to `$frontend-preflight-critic` should be enough because the default reviewer assumptions live in that skill.
 
 Do not let the first draft become the discovery phase. Discovery belongs in the packet.
 

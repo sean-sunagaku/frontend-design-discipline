@@ -221,16 +221,54 @@ The earlier the review happens, the cheaper the correction.
 
 If subagents are available and the user did not forbid delegation:
 
-- prefer an independent subagent preflight review first
-- use `$frontend-preflight-critic` by default
-- route to `$frontend-brand-critic` or `$frontend-composition-critic` as a second opinion when the main risk is obvious
+- the first build-readiness verdict must come from an independent reviewer subagent, not from the same thread that authored the packet
+- use `$frontend-preflight-critic` as the default first reviewer
+- pass the packet and bar, not your own conclusion about whether it already passes
+- wait for a clear `PASS` or `FAIL` before creating a Figma file or starting visual build work
+- if it returns `FAIL`, revise the packet locally and run the preflight again
+- route to `$frontend-brand-critic` or `$frontend-composition-critic` as a second opinion only when the main risk is obvious or still unresolved after preflight
 
 If subagents are unavailable, run the same preflight in-thread.
+
+Do not say "the packet is build-ready" from the same pass that authored the packet unless you have already checked that delegation is unavailable or disallowed in the current session.
 
 Do not proceed to build until the packet either:
 
 - passes, or
 - has only minor polish issues that do not threaten the main impression
+
+In practice, the safe sequence is:
+
+1. write the packet
+2. send it to an independent `$frontend-preflight-critic` reviewer
+3. fix the packet if needed
+4. only then start Figma or frontend build work
+
+Recommended delegated reviewer frame:
+
+```text
+Use the skill /absolute/path/to/SKILL.md.
+
+You are the independent reviewer subagent for this task.
+Do not discuss tool availability, delegation, orchestration, or process.
+Review the current build packet shown in this thread.
+
+Focus on:
+- first impression strength
+- generic SaaS risk
+- dominant visual plan
+- font direction
+- hero scale budget
+- section line budget
+- CTA stance
+
+Return exactly:
+1. PASS or FAIL
+2. one-sentence verdict
+3. remaining P1/P2/P3 issues only
+```
+
+In normal use, the parent prompt can stay much shorter than this. A simple handoff such as `Use $frontend-preflight-critic and review the current build packet in this thread before build.` should be sufficient because the reviewer defaults live in the preflight skill itself.
 
 ## Relationship To Other Skills
 
