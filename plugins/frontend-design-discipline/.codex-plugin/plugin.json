@@ -1,0 +1,41 @@
+{
+  "name": "frontend-design-discipline",
+  "version": "0.1.0",
+  "description": "Focused frontend review skills for composition, brand, copy, UI stability, and iterative refinement.",
+  "author": {
+    "name": "babashunsuke",
+    "email": "sunagaku.dx@gmail.com",
+    "url": "https://github.com/sean-sunagaku"
+  },
+  "homepage": "https://github.com/sean-sunagaku/frontend-design-discipline",
+  "repository": "https://github.com/sean-sunagaku/frontend-design-discipline",
+  "license": "MIT",
+  "keywords": [
+    "frontend",
+    "design-review",
+    "figma",
+    "ui",
+    "codex-skill"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Frontend Design Discipline",
+    "shortDescription": "Focused reviewer skills for frontend and UI quality",
+    "longDescription": "A Codex plugin that bundles focused reviewer skills for frontend composition, brand signal, copy quality, UI stability, and iterative review-refine loops.",
+    "developerName": "babashunsuke",
+    "category": "Productivity",
+    "capabilities": [
+      "Review",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/sean-sunagaku/frontend-design-discipline",
+    "privacyPolicyURL": "https://github.com/sean-sunagaku/frontend-design-discipline",
+    "termsOfServiceURL": "https://github.com/sean-sunagaku/frontend-design-discipline",
+    "defaultPrompt": [
+      "Review this UI for composition, hierarchy, and visual balance.",
+      "Audit whether this screen communicates the intended brand clearly.",
+      "Run a review-refine loop on this Figma frame until it passes."
+    ],
+    "brandColor": "#E5A534"
+  }
+}

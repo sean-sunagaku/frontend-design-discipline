@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontend Brand Critic"
+  short_description: "Audit brand signal and first impression"
+  default_prompt: "Use $frontend-brand-critic to review whether this UI communicates the intended brand and first impression."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Refine Loop"
+  short_description: "Create, review, refine in tight loops"
+  default_prompt: "Use $review-refine-loop to improve this artifact through repeated review and revision cycles with the right critic skill for each pass."

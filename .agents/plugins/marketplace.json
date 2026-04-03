@@ -1,0 +1,20 @@
+{
+  "name": "frontend-design-discipline",
+  "interface": {
+    "displayName": "Frontend Design Discipline"
+  },
+  "plugins": [
+    {
+      "name": "frontend-design-discipline",
+      "source": {
+        "source": "local",
+        "path": "./plugins/frontend-design-discipline"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
