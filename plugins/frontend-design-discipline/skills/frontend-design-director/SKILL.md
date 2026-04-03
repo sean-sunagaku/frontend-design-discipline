@@ -22,6 +22,16 @@ Do not start drawing, coding, or composing screens until this packet exists.
 
 If the design still depends on explanation after the packet is written, the packet is not ready.
 
+If the user explicitly names companion tools or skills for the task, treat them as required parts of the workflow, not as optional hints.
+
+Examples:
+
+- if the user names `Figma`, you must actually use Figma for the build phase
+- if the user names `Frontend Design Discipline`, you must actually run the design-direction and review flow
+- if the user names `Frontend Skill`, you must actually use it to strengthen the visual thesis and art direction
+
+Do not silently collapse these into one another. If one required companion is unavailable, say so clearly instead of pretending the others cover it.
+
 Do not allow:
 
 - generic SaaS split-screen hero
@@ -275,6 +285,10 @@ In normal use, the parent prompt can stay much shorter than this. A simple hando
 - Use this skill before `$review-refine-loop` when the work is visually sensitive.
 - Use this skill alongside `$frontend-skill` when the brief calls for a strong landing page or hero-led UI. Compress `$frontend-skill` into the packet instead of jumping straight into composition.
 - After a build exists, use the narrow critic skills for targeted review.
+
+If the user explicitly named `$frontend-skill`, that is mandatory, not optional. Use it during packet formation to sharpen the visual thesis, anti-goals, and dominant visual plan rather than skipping it or replacing it with this skill alone.
+
+If the user explicitly named `Figma`, building in Figma is mandatory, not optional. Do not stop at packet generation or review-only output.
 
 ## Output Contract
 

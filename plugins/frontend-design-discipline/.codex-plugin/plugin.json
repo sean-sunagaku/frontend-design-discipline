@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "Frontend Design Discipline",
     "shortDescription": "Lock the visual bar before build, then review hard",
-    "longDescription": "A Codex plugin for high-bar frontend and Figma work. It first locks a strict design-direction packet, then uses preflight and critic reviews to prevent generic UI, weak art direction, and late-stage rescue work.",
+    "longDescription": "A Codex plugin for high-bar frontend and Figma work. It locks a strict design-direction packet first, then uses preflight and critic reviews to prevent generic UI, weak art direction, and late-stage rescue work. When the user explicitly names companion tools or skills such as Figma or Frontend Skill, they are treated as required parts of the workflow rather than optional hints.",
     "developerName": "babashunsuke",
     "category": "Productivity",
     "capabilities": [
@@ -32,6 +32,7 @@
     "privacyPolicyURL": "https://github.com/sean-sunagaku/frontend-design-discipline",
     "termsOfServiceURL": "https://github.com/sean-sunagaku/frontend-design-discipline",
     "defaultPrompt": [
+      "Treat explicitly named companion tools and skills as mandatory, not optional. If the user names Figma, Frontend Design Discipline, and Frontend Skill together, use all of them in one workflow.",
       "Use $frontend-design-director first to turn this brief into a strict build packet before any Figma or frontend work begins.",
       "Use $frontend-preflight-critic as the first independent review on the proposed direction when delegation is available.",
       "Use Frontend Design Discipline as a reviewer, not just a builder. Keep reviewer outputs free of tool-availability or process chatter.",

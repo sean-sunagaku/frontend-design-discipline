@@ -115,11 +115,13 @@ plugin 本体は `plugins/frontend-design-discipline/` にあります。
 - まず `frontend-design-director` で build packet を作る
 - build 前に `frontend-preflight-critic` で方向そのものを落とす
 - ユーザーが `Frontend Design Discipline` を明示したら、少なくとも 1 回は critic skill または `review-refine-loop` を通す
+- ユーザーが `Figma`、`Frontend Design Discipline`、`Frontend Skill` など複数の companion を明示したら、それらは全部必須であり、どれか一つで代替してはいけない
 - subagent が使える環境なら、最初の critic pass は独立した subagent reviewer を優先する
 - ユーザーが独立レビューや subagent review を明示したら、まず delegation を試みてから fallback を選ぶ
 - build 系 skill や Figma 制作と併用する場合も、初稿で終わらせずレビュー工程を挟む
 - final answer では、通した critic と残課題、もしくは pass 判定を明示する
 - reviewer subagent はメタ説明に流れず、PASS/FAIL と issue だけを返す
+- もし明示された companion のどれかが本当に使えない場合は、その unavailable 状態を明言し、黙って別フローに置き換えない
 
 意図としては、「generic な UI を作ってから救済する」流れを避け、方向の弱さを build 前に落とすことにあります。
 
