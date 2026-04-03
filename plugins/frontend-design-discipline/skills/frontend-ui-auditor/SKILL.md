@@ -1,6 +1,6 @@
 ---
 name: frontend-ui-auditor
-description: Audit a frontend screen, landing page, app UI, mock, or Figma frame for readability, spacing, clipping, contrast, responsiveness, and implementation-level fit. Use when the user wants a strict pass/fail review of whether text is visible, UI elements fit their containers, spacing feels stable, and the interface would likely survive real browser rendering across common breakpoints.
+description: Audit a frontend screen, landing page, dashboard, workflow view, app UI, mock, or Figma frame for readability, spacing, clipping, contrast, responsiveness, and implementation-level fit. Use when the user wants a strict pass/fail review of whether text is visible, UI elements fit their containers, spacing feels stable, and the interface would likely survive real browser rendering across common breakpoints.
 ---
 
 # Frontend UI Auditor
@@ -26,7 +26,8 @@ Inspect these failure modes:
 2. awkward or ambiguous line breaks
 3. spacing that feels accidental or fragile
 4. elements too close to edges, dividers, or neighboring blocks
-5. likely breakpoint failures at common desktop and mobile widths
+5. text fit inside bounded areas such as cards, rails, panels, or buttons
+6. likely breakpoint failures at common desktop and mobile widths
 
 Default widths to reason through:
 
@@ -40,9 +41,11 @@ Mark it NG if:
 - text looks cut off or almost cut off
 - content technically fits but still reads as broken
 - bounded areas such as cards, mockups, and rails look one line away from failure
+- text appears to slip outside a frame, box, pill, or button, even slightly
+- secondary-zone text only fits because the box is overfilled and visually tense
 - contrast is too weak for routine reading
-- headline scale is so aggressive that the hero balance depends on luck
-- lower-section text blocks rely on narrow columns and overwrapping to fit
+- headline scale is so aggressive that the opening-zone balance depends on luck
+- secondary-zone text blocks rely on narrow columns and overwrapping to fit
 - the layout depends on luck rather than resilient spacing
 - the proposed structure would obviously become fragile at common breakpoints
 
@@ -66,6 +69,7 @@ Each issue must explain:
 - Treat almost-failing layouts as failures.
 - Separate readability issues from brand or composition issues unless they overlap directly.
 - When screenshots are available, trust the pixels first.
+- If a box looks like it needs one more line of padding or one less line of text, fail it now rather than calling it acceptable.
 
 ## Subagent Use
 

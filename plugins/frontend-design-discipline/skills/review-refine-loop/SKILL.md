@@ -73,14 +73,15 @@ If the user has already given a bar, restate it briefly and use that exact stand
 
 ### Step 0: Lock The Build Bar Before Building
 
-For visually led landing pages, Figma screens, or premium frontend work:
+For visually led landing pages, app homes, dashboards, workflow views, detail views, settings surfaces, Figma screens, or premium frontend work:
 
 - if `$frontend-skill` was explicitly named, read and use it during direction-setting
 - run `$frontend-design-director` first
 - compile the brief into a build packet
 - send that packet to `$frontend-preflight-critic` before the first draft when delegation is available
 - treat that independent preflight verdict as the build gate
-- do not let the same thread that authored the packet declare it build-ready unless delegation was checked and found unavailable or disallowed
+- do not let the same thread that authored the packet declare it build-ready
+- if an independent reviewer subagent cannot run, stop and report that the build gate is blocked instead of falling back locally
 - if `Figma` was explicitly named, continue into actual Figma build work after the packet passes; review-only is not sufficient
 
 The parent thread does not need to restate the full reviewer script each time. A short handoff to `$frontend-preflight-critic` should be enough because the default reviewer assumptions live in that skill.
@@ -128,8 +129,10 @@ For the first review in a build-plus-review task, treat subagent review as the d
 
 - Do not keep the first critic pass local just because you already have context.
 - The point of the first pass is independent signal, so bias toward a fresh subagent reviewer.
-- Only keep the first pass in-thread when subagents are unavailable, disallowed, or the user explicitly asked not to delegate.
+- Same-thread fallback is not valid for the first critic pass.
+- If an independent reviewer cannot run, stop and report the blocker rather than simulating the review locally.
 - Do not claim delegation is unavailable unless you have actually checked the tools available in the current session.
+- Do not simulate an independent review by drafting a `PASS`/`FAIL` block yourself before a critic actually runs.
 
 When subagents are available, prefer an independent reviewer subagent.
 
@@ -158,6 +161,8 @@ When delegating to a critic subagent:
 - the subagent must not answer with "I can't launch a subagent here" or similar meta explanations
 - if the artifact is visible in the thread, the subagent should return a best-effort critic review instead of refusing
 - the parent thread is responsible for orchestration; the reviewer subagent is responsible for the review output only
+
+Neither the parent thread nor the subagent may fake a review artifact just to unblock the loop. No placeholder files, shell-printed verdicts, or decorative `PASS` headers count as a review.
 
 Use this default reviewer frame whenever possible:
 

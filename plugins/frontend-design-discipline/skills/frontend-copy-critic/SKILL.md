@@ -1,6 +1,6 @@
 ---
 name: frontend-copy-critic
-description: Review frontend copy in a screen, landing page, app UI, mock, or Figma frame for clarity, hierarchy, wrapping quality, and message discipline. Use when the user wants strict feedback on whether headlines, labels, helper text, CTA text, and supporting copy read naturally, avoid filler, and support the UI instead of muddying it.
+description: Review frontend copy in a screen, landing page, dashboard, workflow view, app UI, mock, or Figma frame for clarity, hierarchy, wrapping quality, and message discipline. Use when the user wants strict feedback on whether headlines, labels, helper text, action text, and supporting copy read naturally, avoid filler, and support the UI instead of muddying it.
 ---
 
 # Frontend Copy Critic
@@ -9,34 +9,36 @@ description: Review frontend copy in a screen, landing page, app UI, mock, or Fi
 
 Use this skill to review UI copy as placed, not as abstract text. Judge whether the words help the interface read faster and more clearly.
 
-If no artifact exists yet, review the planned headline, CTA, and supporting-copy load in the direction packet. Catch vague or bloated messaging before it hardens into the layout.
+If no artifact exists yet, review the planned headline, primary action, and supporting-copy load in the direction packet. Catch vague or bloated messaging before it hardens into the layout.
 
 ## What To Check
 
 This skill can be used in two modes:
 
 - artifact review: judge placed copy in the current UI
-- direction review: judge the planned headline, CTA, and support-copy load before build
+- direction review: judge the planned headline, primary action, and support-copy load before build
 
 In direction review mode, fail if the message will only work once long supporting text is added.
 
 Inspect:
 
 1. headline clarity
-2. CTA wording
+2. primary action wording
 3. helper text necessity
 4. repeated or bloated explanations
 5. wrapping quality and line-break semantics
-6. section-by-section line budget discipline
+6. zone-by-zone line budget discipline
 
 Mark it NG if:
 
 - the message is slower to understand because of the copy
 - helper text repeats what the layout already says
-- a headline is broad but the CTA does not tell the user what to do
+- a headline is broad but the main action does not tell the user what to do
 - the headline has to become oversized because the wording lacks precision
-- lower-section titles only work because they are allowed to wrap too many lines
+- secondary-zone titles only work because they are allowed to wrap too many lines
 - multiple neighboring blocks have similarly awkward wrapping, creating a templated feel
+- secondary-zone headings drift into a third line when the zone would clearly read better in one or two
+- boxed copy, primary action text, or small labels need awkward manual line breaks just to stay inside the frame
 - labels or notes wrap at awkward linguistic points
 - Japanese copy feels mechanically wrapped rather than intentionally set
 - filler copy weakens the intended hierarchy
@@ -62,7 +64,8 @@ Each issue must state:
 - Prefer deletion over rewriting when the text is unnecessary.
 - Treat awkward line breaks as a real defect.
 - If one sentence could be cut with no loss, call that out.
-- If a section lacks an explicit line budget, ask for one implicitly by failing uncontrolled wrapping.
+- If a zone lacks an explicit line budget, ask for one implicitly by failing uncontrolled wrapping.
+- Treat text escaping or nearly escaping a bounded area as both a copy and fit failure, not as harmless polish.
 
 ## Subagent Use
 
@@ -77,11 +80,11 @@ Default to `reasoning_effort: "medium"` unless the user asks for deeper judgment
 
 Sample prompt:
 
-- `/Users/babashunsuke/Repository/frontend-design-discipline/plugins/frontend-design-discipline/skills/frontend-copy-critic/SKILL.md にある $frontend-copy-critic を使って、Studio Pulse のランディングページをコピーの明快さ、折り返し、補助文のノイズ、CTA 文言の観点でレビューしてください。PASS/FAIL と、残っている P1/P2/P3 の issue だけを返してください。`
+- `/Users/babashunsuke/Repository/frontend-design-discipline/plugins/frontend-design-discipline/skills/frontend-copy-critic/SKILL.md にある $frontend-copy-critic を使って、画面のコピーの明快さ、折り返し、補助文のノイズ、主要アクション文言の観点でレビューしてください。PASS/FAIL と、残っている P1/P2/P3 の issue だけを返してください。`
 
 ## Good Findings
 
-- `P1 The CTA says too little to conclude the page. Replace the vague action with a direct product action.`
+- `P1 The main action says too little to conclude the flow. Replace the vague action with a direct product action.`
 - `P1 The helper text under the button is not broken technically, but it reads as noise and weakens the close. Remove it or move it out of the CTA cluster.`
 - `P2 The paragraph wraps at unnatural phrase boundaries, which makes it feel clipped. Rewrite the sentence or narrow the measure deliberately.`
 

@@ -1,6 +1,6 @@
 ---
 name: frontend-preflight-critic
-description: Review a proposed UI direction, build packet, or first-view plan before any screen is built. Use when you want to catch generic, weak, or contradictory art direction early and block bad UI before implementation.
+description: Review a proposed UI direction, build packet, or first-view plan before any screen is built. Use when you want to catch generic, weak, or contradictory art direction early and block bad UI before implementation across landing pages, app views, dashboards, and feature screens.
 ---
 
 # Frontend Preflight Critic
@@ -21,6 +21,8 @@ Valid inputs include:
 - a section breakdown
 - a wireframe or low-fidelity direction note
 
+Use this skill for application UI as well as landing pages. The same preflight gate should apply to dashboards, editors, workflows, settings, and admin surfaces before implementation begins.
+
 ## Default Reviewer Assumptions
 
 Do not require the parent prompt to restate the full review frame every time.
@@ -34,9 +36,9 @@ Unless the user explicitly narrows or overrides the scope, assume all of the fol
   - generic SaaS risk
   - dominant visual plan
   - font direction
-  - hero scale budget
-  - section line budget
-  - CTA stance
+  - opening-zone scale budget
+  - zone line budget
+  - primary action stance
 - the output must follow the skill's PASS/FAIL contract with remaining issues only
 
 This means a short parent prompt such as:
@@ -45,6 +47,19 @@ This means a short parent prompt such as:
 - `Run preflight on this Studio Pulse direction packet before build.`
 
 should already be enough.
+
+## Validation Integrity
+
+This skill only counts when an actual review is performed.
+
+- do not fabricate a preflight result before the review happens
+- do not write a synthetic `PASS` or `FAIL` block just to move the workflow forward
+- do not create a fake critic transcript with shell output, temp files, or placeholder formatting and present it as the review
+- if you are the same thread that authored the packet and no independent reviewer has actually run yet, do not call the result an independent preflight review
+- same-thread fallback is not valid for this skill's build-gate verdict
+- if an independent reviewer subagent cannot run, report that the build gate is blocked instead of substituting a local review
+
+Only a real critic pass may produce the build-gate verdict.
 
 ## What To Check
 
@@ -55,25 +70,28 @@ Inspect these dimensions:
 3. genericity risk
 4. strength of the dominant visual plan
 5. typography direction and font fit
-6. hero scale budget
-7. section text line budget
-8. section-job discipline
-9. anti-goal usefulness
-10. CTA stance clarity
+6. opening-zone scale budget
+7. zone text line budget
+8. bounded text fit and safe padding
+9. zone-job discipline
+10. anti-goal usefulness
+11. primary action stance clarity
 
 Mark it NG if:
 
 - the first viewport could still become a generic SaaS page
 - the plan does not name a strong visual anchor
 - the font direction is generic, unintentional, or unsupported by the intended mood
-- the hero plan would likely require an oversized headline to feel important
+- the primary opening-zone plan would likely require an oversized headline to feel important
 - the headline would overpower the brand mark, supporting copy, or CTA cluster
-- the lower sections have no explicit line budget and will likely collapse into awkward wrapped columns
+- the secondary zones have no explicit line budget and will likely collapse into awkward wrapped columns
 - the planned headings or proof-point titles are likely to overwrap in narrow containers
-- multiple sections sound interchangeable
+- bounded copy areas such as CTA panels, proof items, or rail notes are likely to touch edges or break out of their frames
+- secondary zones would need tiny late-stage type reductions just to stay inside their boxes
+- multiple zones sound interchangeable
 - anti-goals are too vague to reject bad output
 - the plan leans on copy to carry the whole page
-- the CTA sounds like filler rather than a conclusion
+- the primary action sounds like filler rather than a conclusion or next step
 
 ## Output Contract
 
@@ -93,14 +111,18 @@ If the direction is not clearly ready, prefer `FAIL`. Do not soften a blocking d
 
 Return the review directly. Do not wrap it in setup chatter, capability disclaimers, or process notes.
 
+Do not emit `PASS` unless you have actually reviewed the current packet in this run.
+Do not emit the build-gate verdict from the packet-authoring thread.
+
 ## Review Discipline
 
 - Judge the plan as if rework after build were expensive.
 - Be strict about genericity.
-- If a section cannot be pictured clearly, treat that as a real defect.
+- If a zone cannot be pictured clearly, treat that as a real defect.
 - Prefer rejecting a weak direction before implementation over rescuing it later.
-- Treat weak font rationale and runaway hero scale as first-order design defects, not polish.
+- Treat weak font rationale and runaway opening-zone scale as first-order design defects, not polish.
 - Treat uncontrolled wrapping and missing line budgets as structural defects, not typography cleanup.
+- Treat text-fit risk in secondary zones as a structural defect, not as last-minute cleanup in Figma.
 
 ## Subagent Guardrail
 
@@ -114,10 +136,12 @@ When this skill is used in a delegated reviewer thread:
 - use the default focus list unless the parent explicitly changes it
 - return the review output contract directly
 
+If you did not actually review the packet, return nothing yet and review it first. Never simulate a completed verdict.
+
 If the packet is incomplete, review the available material anyway and call missing pieces a defect.
 
 ## Good Findings
 
-- `P1 The hero direction still sounds like text plus a mockup, which will likely collapse into a generic split-screen SaaS layout. Replace it with one dominant visual plane and make the text column secondary to that plane.`
+- `P1 The opening direction still sounds like text plus a mockup, which will likely collapse into a generic split-screen SaaS layout. Replace it with one dominant visual plane and make the text column secondary to that plane.`
 - `P1 The anti-goals do not forbid any concrete failure modes, so the builder still has room to produce a normal feature-card page. Add explicit rejections for card grids, weak hero mockups, and filler dashboard patterns.`
-- `P2 The CTA stance is still generic and does not tell the builder how the page should close emotionally. Define whether the close should feel calm, decisive, exclusive, or invitational.`
+- `P2 The primary action stance is still generic and does not tell the builder how the flow should close emotionally. Define whether the commit should feel calm, decisive, exclusive, or invitational.`
