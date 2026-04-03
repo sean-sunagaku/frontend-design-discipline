@@ -34,6 +34,7 @@ Inspect these failure modes:
 6. missing breathing corridor between neighboring masses
 7. underused width causing avoidable wrapping or crowding
 8. fragile local layout that would likely break after one copy change
+9. odd manual line breaks inside the local crop
 
 Mark it NG if:
 
@@ -41,6 +42,7 @@ Mark it NG if:
 - elements do not overlap technically but still read as touching, kissing, or visually colliding
 - body copy, caption, and action feel jammed together instead of reading as one calm cluster
 - a bounded area only works because the text happens to break at one exact line
+- a heading, label, or button in the crop appears manually broken at an unnatural point
 - text sits too close to a frame edge, divider, or nearby object
 - the obvious fix is to widen the local zone, but the layout instead keeps squeezing text vertically
 - the crop shows unused horizontal room while the text wraps into tense multi-line stacks
@@ -77,6 +79,7 @@ Each issue must state:
 - Be stricter than a normal visual review.
 - Treat "almost touching" as a real issue.
 - Prefer widening and re-spacing before shrinking type.
+- Prefer healthier measure and grouping before inserting manual line breaks.
 - If a cluster only works because the copy is short today, fail it.
 - If a side-by-side layout has no calm quiet band, fail it even without literal overlap.
 
