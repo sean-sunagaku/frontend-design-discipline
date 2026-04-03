@@ -32,6 +32,7 @@ Inspect these dimensions:
 10. width widened before text is squeezed when the layout is clearly under-measured
 11. text layers living inside explicit parent frames or clusters instead of standing alone
 12. line endings that read naturally instead of stopping at an accidental phrase boundary
+13. real perimeter padding so content does not feel pinned to the outer edge of a section or cluster
 
 ## Mark it NG if
 
@@ -46,6 +47,7 @@ Inspect these dimensions:
 - the likely build path starts from free-placed text and rectangles instead of section frames and nested clusters
 - the layout needs a wrapper, row, or column but the packet has not named one
 - side-by-side masses have no protected breathing corridor
+- a section or bounded cluster technically fits but leaves content pressed too close to its outer edge
 - a heading, label, or helper line ends with an accidental-looking short line instead of a meaningful break
 - the obvious fix is a structural wrapper or wider parent frame, but the plan still pushes text to fit by luck
 
@@ -74,6 +76,7 @@ Each issue should say:
 - Prefer a wrapper, stack, row, column, or cluster before local coordinate tweaks.
 - If widening the zone would clearly solve the problem, prefer widening over squeezing text.
 - If a line ends awkwardly, prefer a wider measure, better cluster, or rewrite over a manual break.
+- Treat missing perimeter padding as a structural defect when the content reads edge-hugging despite technically fitting.
 - If the section needs a crop to prove it is safe, review the crop, not just the full page.
 
 ## Subagent Use
@@ -93,6 +96,7 @@ Good findings:
 - `P1 The CTA cluster is fixed-height even though the copy is likely to wrap, so the section will fail as soon as content changes. Switch the cluster to HUG and let the action row size naturally.`
 - `P2 The line ending looks accidental rather than intentional. Widen the cluster or rewrite the copy so the break reads as meaningful instead of rescued.`
 - `P2 The side-by-side zones have no quiet band between them, which makes the structure feel tense even when the pixels do not overlap. Reserve a breathing corridor and widen the parent frame if needed.`
+- `P2 The content technically fits inside the section, but the outer padding is too thin to feel calm. Increase the perimeter padding before polishing type or local gaps.`
 
 ## Not Your Job
 

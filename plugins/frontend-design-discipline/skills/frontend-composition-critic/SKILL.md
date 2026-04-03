@@ -32,6 +32,7 @@ Focus on these questions:
 6. Is the available width being used intentionally, or is the surface unnecessarily cramped?
 7. Do repeated steps, rails, or proof rows share one calm rhythm instead of drifting apart?
 8. Does the opening copy cluster feel intentionally inset, or does it read as pinned to the left edge?
+9. Do major zones have enough perimeter breathing room to feel settled, not edge-hugging?
 
 Mark it NG if any of these patterns appear:
 
@@ -46,6 +47,7 @@ Mark it NG if any of these patterns appear:
 - side-by-side masses have no deliberate breathing corridor and therefore read as crowded even without literal overlap
 - the opening copy cluster sits so close to the left edge that the hero reads edge-hugging rather than composed
 - copy and nearby objects are close enough to read as kissing or visually colliding
+- a major zone technically fits but still feels pressed against its outer perimeter, so the composition never settles
 - zone titles or action panels that visually break their intended frame because the type block is too tall or too wide
 - repeated rows or numbered steps have inconsistent top edges, title starts, or body starts, so the sequence reads messy instead of composed
 - title columns inside repeated rows are too wide, so the body measure gets cramped and the list loses calm
@@ -101,6 +103,7 @@ Sample prompt:
 - `P2 The section is not failing because the copy is too long; it is failing because the zone is held too narrow. Reallocate more horizontal width before shrinking type or adding more rows.`
 - `P2 The left and right masses do not overlap, but they leave no real breathing corridor, so the composition still feels tense. Reallocate width or introduce a clearer quiet band between them.`
 - `P2 The hero is not failing because the copy is long; it is failing because the opening copy cluster is pinned too close to the left edge. Move the cluster inward or reallocate width before changing the words.`
+- `P2 The section is not failing because of local overlap; it is failing because the outer padding is too thin, so the whole zone reads edge-hugging. Increase the perimeter breathing room before polishing internals.`
 - `P2 The primary action sits in the page but does not conclude the hierarchy. Increase positional clarity or reduce nearby competing elements.`
 - `P2 The numbered steps are individually fine, but their starts and body measures drift enough that the sequence loses rhythm. Align the starts, narrow the title column, and let the body column breathe.`
 

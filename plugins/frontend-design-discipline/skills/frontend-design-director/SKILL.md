@@ -315,6 +315,7 @@ Default bar:
 - no important label should touch or nearly touch a frame edge
 - no section should depend on three-line mini paragraphs inside small cards or boxes
 - secondary zones should feel quieter than the opening zone, not more cramped than the opening zone
+- major zones should reserve enough perimeter padding that the surface never feels edge-hugging even before local spacing polish
 
 Reject plans where:
 
@@ -322,6 +323,7 @@ Reject plans where:
 - the container only works at one exact line break
 - the layout depends on shrinking text too late in Figma to make it fit
 - secondary zones inherit the opening zone's drama as oversized text instead of settled rhythm
+- a section, panel, rail, or cluster would technically fit but leave the content pressed too close to the outer perimeter to feel calm
 
 ### 12. Spacing Budget
 
@@ -333,6 +335,7 @@ At minimum, define:
 - body to primary action gap
 - text cluster to nearby object clearance
 - safe padding inside bounded copy areas
+- perimeter padding for major zones and bounded clusters
 - breathing corridor between major side-by-side masses
 - opening copy cluster inset from the nearest left edge or dominant visual-plane boundary
 - repeated-row rhythm for steps, timelines, proof items, or numbered sequences
@@ -346,6 +349,7 @@ Reject plans where:
 - the zone only works if text is nudged late in Figma
 - the closest visual object can drift into the text area with no reserved clearance
 - the design relies on a mathematically small gap that will read as touching, kissing, or visually colliding
+- the section has no declared perimeter padding, so content could feel pinned to one or more outer edges even while technically fitting
 - side-by-side text and visual masses have no intentional quiet band between them
 - the opening copy cluster has no declared left-side inset, so the hero could feel cramped even without literal overlap
 - repeated steps or numbered rows have inconsistent top rhythm, title starts, or body starts
@@ -451,6 +455,7 @@ Completion condition:
 - the section is complete only when no overflow remains
 - the section is complete only when absolute positioning is decorative only
 - the section is complete only when screenshots show no clipping or cut-off content
+- the section is complete only when content does not read as pinned to the outer perimeter from any side
 - the section is complete only when all text lives inside explicit frames or clusters
 - the section is complete only when line endings are intentional rather than awkward rescue breaks
 
@@ -471,6 +476,7 @@ Examples of cluster-level crops:
 
 - hero text column
 - opening copy cluster with the left edge and nearest visual mass both visible
+- one crop where the outer perimeter padding of a text-heavy zone is visible on every relevant side
 - support copy plus nearby proof object
 - detail copy cluster versus decision thread
 - final CTA closing cluster

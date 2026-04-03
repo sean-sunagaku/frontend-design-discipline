@@ -1,4 +1,4 @@
 interface:
   display_name: "Frontend Preflight Critic"
   short_description: "Reject weak UI directions before build"
-  default_prompt: "Use $frontend-preflight-critic to independently review the current build packet or proposed UI direction in this thread before any screen is built, including repeated-row rhythm, bare text nodes, awkward line breaks, opening copy inset risk, and tree-level structural fragility."
+  default_prompt: "Use $frontend-preflight-critic to independently review the current build packet or proposed UI direction in this thread before any screen is built, including repeated-row rhythm, bare text nodes, awkward line breaks, opening copy inset risk, perimeter padding risk, and tree-level structural fragility."

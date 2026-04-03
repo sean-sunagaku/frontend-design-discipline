@@ -110,6 +110,7 @@ Mark it NG if:
 - the headline would overpower the brand mark, supporting copy, or CTA cluster
 - the packet does not reserve a clear left-side inset for the opening copy cluster, so the hero could feel pinned to the edge
 - the opening copy cluster is likely to sit too close to the dominant visual plane, rail, or surface boundary even if it does not overlap
+- the packet never states the perimeter padding for major zones or bounded clusters, so content may technically fit while still feeling edge-hugging
 - the secondary zones have no explicit line budget and will likely collapse into awkward wrapped columns
 - the packet does not say which zones should widen and which should stay narrow
 - a text-heavy or working zone is over-constrained to a narrow measure even though the surface clearly wants more horizontal room
@@ -177,6 +178,7 @@ Do not emit the build-gate verdict from the packet-authoring thread.
 - Treat missing text-cluster structure and missing section-level inspection plans as structural defects, not optional QA.
 - Treat missing breathing corridors between side-by-side masses as a structural defect, not as taste.
 - Treat a cramped opening copy inset as a structural defect, not as subjective hero polish.
+- Treat missing perimeter padding around major zones or bounded clusters as a structural defect, not as optional visual tuning.
 - Treat forced manual line breaks as a structural defect when they are being used to rescue a weak measure.
 
 ## Subagent Guardrail
@@ -203,3 +205,4 @@ If the packet is incomplete, review the available material anyway and call missi
 - `P2 The packet still assumes the closing copy and CTA can be placed ad hoc inside the final zone. Define one CTA cluster, its spacing budget, and the screenshot crops that will be used to verify it after the first draft.`
 - `P2 The support zone names the left and right masses but never reserves a quiet band between them, so the likely outcome is visual kissing rather than calm separation. Define the breathing corridor explicitly and protect it in the crop review plan.`
 - `P2 The opening zone names the text column and visual plane, but it never reserves a real left inset for the copy cluster. Define the minimum inset and the crop that will verify the hero does not feel edge-hugging.`
+- `P2 The packet defines local gaps but never defines outer perimeter padding, so the built section may still feel cramped against its frame even without overlap. State the minimum padding and the crop that will verify the zone has calm outer breathing room.`

@@ -37,6 +37,7 @@ Inspect these failure modes:
 9. odd manual line breaks inside the local crop
 10. broken rhythm across repeated rows inside the same crop
 11. opening copy clusters that feel edge-hugging even without literal overlap
+12. outer padding so thin that the crop feels pinned to its perimeter
 
 Mark it NG if:
 
@@ -50,6 +51,7 @@ Mark it NG if:
 - the obvious fix is to widen the local zone, but the layout instead keeps squeezing text vertically
 - the crop shows unused horizontal room while the text wraps into tense multi-line stacks
 - the opening copy cluster sits too close to the left edge or nearest visual plane boundary to feel calm
+- the crop technically fits but still feels pinned to one or more outer edges because perimeter padding is too thin
 - repeated rows in the same crop do not share aligned starts, title widths, or body widths
 - the title column inside a repeated row is clearly too wide for the amount of content it holds
 - divider lines or separators inside the crop feel louder than the text they are supposed to organize
@@ -90,6 +92,7 @@ Each issue must state:
 - Prefer explicit text clusters before letting text float as a loose layer.
 - Prefer one shared row rhythm for numbered sequences before styling each row independently.
 - Prefer more inset or width before accepting an opening copy cluster that feels pinned to an edge.
+- Prefer stronger perimeter padding before accepting a crop that technically fits but still feels edge-hugging.
 - If a cluster only works because the copy is short today, fail it.
 - If a side-by-side layout has no calm quiet band, fail it even without literal overlap.
 
@@ -109,6 +112,7 @@ Default to `reasoning_effort: "medium"` unless the user asks for deeper judgment
 - `P1 The support copy and proof object do not literally overlap, but the gap is so small that the crop still reads as visually colliding. Increase the breathing corridor or widen the zone.`
 - `P1 The hero copy cluster is technically inside the surface, but it hugs the left edge closely enough that the crop still feels cramped. Increase the inset or move the cluster inward before changing the copy.`
 - `P1 The CTA cluster is technically inside its panel, but the body and action are too compressed to feel stable. Rebuild it as one calmer stack with more vertical clearance.`
+- `P2 The zone is not failing because of overlap; it is failing because the outer padding is too thin, so the crop still feels pinned to its perimeter. Increase the perimeter breathing room before making micro typography changes.`
 - `P2 The note rail could survive if the zone were wider. Reallocate horizontal room before shrinking type or forcing a harsher break.`
 - `P2 The step rows technically fit, but the title column is stealing width from the body and the row starts drift enough to look uncomposed. Narrow the title column and align the sequence rhythm.`
 

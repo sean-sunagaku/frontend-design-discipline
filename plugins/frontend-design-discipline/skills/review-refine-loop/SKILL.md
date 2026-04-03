@@ -111,6 +111,7 @@ Inspect the artifact directly before changing anything.
 - when a zone feels cramped, compare the crop against the unused horizontal space around it and ask whether widening is the real fix
 - when a side-by-side layout feels tense, inspect whether the gap is a real breathing corridor or only nominal spacing
 - when the opening zone feels cramped, inspect whether the copy cluster is pinned to the left edge instead of truly inset
+- when a zone technically fits but still feels wrong, inspect whether the outer perimeter padding is too thin
 - Typical cluster crops include:
   - hero/opening text cluster
   - support copy plus nearby proof object
@@ -186,6 +187,7 @@ For frontend and design tasks, route the review to the narrowest critic skill th
 Use `$frontend-composition-critic` when the problem is repeated-row rhythm across a section.
 Use `$frontend-zone-fit-critic` when the problem is a local step row, title column, divider, or body measure inside one crop.
 Use `$frontend-zone-fit-critic` or `$frontend-composition-critic` when the problem is a cramped opening copy cluster or weak hero inset.
+Use `$frontend-zone-fit-critic`, `$frontend-ui-auditor`, or `$frontend-composition-critic` when the problem is missing perimeter padding that makes a zone feel edge-hugging.
 
 After the first real draft of a text-heavy or bounded-copy surface, at least one `$frontend-zone-fit-critic` or `$frontend-ui-auditor` pass is mandatory before final signoff.
 Prefer `$frontend-zone-fit-critic` when the risk is local crop safety rather than whole-surface implementation stability.

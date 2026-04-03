@@ -51,6 +51,7 @@ Inspect these failure modes:
 7. underused horizontal space that creates avoidable wrapping, crowding, or overlap
 8. missing breathing room between side-by-side masses
 9. likely breakpoint failures at common desktop and mobile widths
+10. content that technically fits but still feels pinned to the outer perimeter of its zone
 
 Default widths to reason through:
 
@@ -79,6 +80,7 @@ Mark it NG if:
 - the screen keeps large amounts of empty horizontal space while text-heavy areas wrap, collide, or crowd each other
 - side-by-side masses have no calm breathing corridor between them, so the layout reads crowded even with nominal spacing
 - the opening copy cluster is technically inside the hero but sits so close to the left edge that the first view still reads cramped
+- a section, card, rail, or cluster technically contains its content but still feels edge-hugging because perimeter padding is too thin
 - contrast is too weak for routine reading
 - headline scale is so aggressive that the opening-zone balance depends on luck
 - secondary-zone text blocks rely on narrow columns and overwrapping to fit
@@ -115,6 +117,7 @@ Each issue must explain:
 - If widening the available measure would clearly stabilize the zone, prefer that fix before shrinking type or forcing additional rows.
 - If the gap is technically present but still reads as tense or kissing, fail it and ask for a clearer breathing corridor.
 - If the opening copy cluster feels pinned to the left edge, fail it and ask for a clearer left inset before touching typography.
+- If the content technically fits but still feels pinned to an outer edge, fail it and ask for stronger perimeter padding before polishing local gaps.
 
 ## Subagent Use
 
@@ -139,6 +142,7 @@ Sample prompt:
 - `P1 The final CTA looks acceptable in the full-page view, but the section crop shows the body and action cluster colliding with nearby elements. Rebuild the closing cluster as one stacked unit and reserve more clearance.`
 - `P1 The copy and proof object do not overlap, but the gap is so small that the section still reads as visually colliding. Increase the breathing corridor or widen the zone before trying smaller type changes.`
 - `P2 The hero text is readable, but the opening copy cluster is pinned so close to the left edge that the first view still feels cramped. Increase the inset or move the cluster inward before polishing the type.`
+- `P2 The text is inside the panel, but the perimeter padding is too thin for the section to feel settled. Increase the outer padding before adjusting type size or line breaks.`
 - `P2 Contrast in the idle state is too low for routine scanning. Raise value contrast without changing the whole palette.`
 
 ## Not Your Job
