@@ -125,6 +125,71 @@ plugin 本体は `plugins/frontend-design-discipline/` にあります。
 
 意図としては、「generic な UI を作ってから救済する」流れを避け、方向の弱さを build 前に落とすことにあります。
 
+## Refresh Installed Cache
+
+Plugin を更新したのに、Codex 上で古い skill のまま見えることがあります。
+
+たとえば:
+
+- plugin 詳細画面には新しい skill が見える
+- しかし chat の skill 候補や実行時の挙動は古い
+
+この場合は、installed cache を更新してください。
+
+### Recommended Refresh Flow
+
+いちばん簡単な更新手順は次の通りです。
+
+1. Codex の `Plugins` 画面で `Frontend Design Discipline` を `Remove from Codex`
+2. そのままもう一度 `Install plugin`
+3. できれば新しいスレッドを開く
+
+多くの場合、これで最新 skill が反映されます。
+
+要するに、更新時は「上書きされるはず」と考えるより、
+一度アンインストールしてから再インストールする運用を基本にしてください。
+
+### Check Whether Cache Is Current
+
+現在の installed cache は通常次の場所にあります。
+
+```text
+~/.codex/plugins/cache/frontend-design-discipline/frontend-design-discipline/local
+```
+
+skill 一覧を確認する例:
+
+```bash
+find ~/.codex/plugins/cache/frontend-design-discipline/frontend-design-discipline/local/skills -maxdepth 1 -mindepth 1 -type d | sort
+```
+
+repo 側と cache 側が一致しているか確認する例:
+
+```bash
+diff -q \
+  ~/.codex/plugins/cache/frontend-design-discipline/frontend-design-discipline/local/skills/review-refine-loop/SKILL.md \
+  plugins/frontend-design-discipline/skills/review-refine-loop/SKILL.md
+```
+
+`diff -q` が無出力なら、そのファイルは一致しています。
+
+### If Reinstall Is Not Enough
+
+それでも古い skill が残る場合は:
+
+1. `Remove from Codex`
+2. Codex を終了
+3. cache を削除
+4. Codex を起動
+5. `Install plugin`
+6. 新しいスレッドを開く
+
+cache 削除の例:
+
+```bash
+rm -rf ~/.codex/plugins/cache/frontend-design-discipline
+```
+
 ## Repository Structure
 
 - `.agents/plugins/marketplace.json`: repo marketplace entry
