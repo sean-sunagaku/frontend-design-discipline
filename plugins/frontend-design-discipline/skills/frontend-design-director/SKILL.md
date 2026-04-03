@@ -22,6 +22,16 @@ Do not start drawing, coding, or composing screens until this packet exists.
 
 If the design still depends on explanation after the packet is written, the packet is not ready.
 
+If the user explicitly names companion tools or skills for the task, treat them as required parts of the workflow, not as optional hints.
+
+Examples:
+
+- if the user names `Figma`, you must actually use Figma for the build phase
+- if the user names `Frontend Design Discipline`, you must actually run the design-direction and review flow
+- if the user names `Frontend Skill`, you must actually use it to strengthen the visual thesis and art direction
+
+Do not silently collapse these into one another. If one required companion is unavailable, say so clearly instead of pretending the others cover it.
+
 Do not allow:
 
 - generic SaaS split-screen hero
@@ -221,22 +231,64 @@ The earlier the review happens, the cheaper the correction.
 
 If subagents are available and the user did not forbid delegation:
 
-- prefer an independent subagent preflight review first
-- use `$frontend-preflight-critic` by default
-- route to `$frontend-brand-critic` or `$frontend-composition-critic` as a second opinion when the main risk is obvious
+- the first build-readiness verdict must come from an independent reviewer subagent, not from the same thread that authored the packet
+- use `$frontend-preflight-critic` as the default first reviewer
+- pass the packet and bar, not your own conclusion about whether it already passes
+- wait for a clear `PASS` or `FAIL` before creating a Figma file or starting visual build work
+- if it returns `FAIL`, revise the packet locally and run the preflight again
+- route to `$frontend-brand-critic` or `$frontend-composition-critic` as a second opinion only when the main risk is obvious or still unresolved after preflight
 
 If subagents are unavailable, run the same preflight in-thread.
+
+Do not say "the packet is build-ready" from the same pass that authored the packet unless you have already checked that delegation is unavailable or disallowed in the current session.
 
 Do not proceed to build until the packet either:
 
 - passes, or
 - has only minor polish issues that do not threaten the main impression
 
+In practice, the safe sequence is:
+
+1. write the packet
+2. send it to an independent `$frontend-preflight-critic` reviewer
+3. fix the packet if needed
+4. only then start Figma or frontend build work
+
+Recommended delegated reviewer frame:
+
+```text
+Use the skill /absolute/path/to/SKILL.md.
+
+You are the independent reviewer subagent for this task.
+Do not discuss tool availability, delegation, orchestration, or process.
+Review the current build packet shown in this thread.
+
+Focus on:
+- first impression strength
+- generic SaaS risk
+- dominant visual plan
+- font direction
+- hero scale budget
+- section line budget
+- CTA stance
+
+Return exactly:
+1. PASS or FAIL
+2. one-sentence verdict
+3. remaining P1/P2/P3 issues only
+```
+
+In normal use, the parent prompt can stay much shorter than this. A simple handoff such as `Use $frontend-preflight-critic and review the current build packet in this thread before build.` should be sufficient because the reviewer defaults live in the preflight skill itself.
+
 ## Relationship To Other Skills
 
 - Use this skill before `$review-refine-loop` when the work is visually sensitive.
 - Use this skill alongside `$frontend-skill` when the brief calls for a strong landing page or hero-led UI. Compress `$frontend-skill` into the packet instead of jumping straight into composition.
 - After a build exists, use the narrow critic skills for targeted review.
+
+If the user explicitly named `$frontend-skill`, that is mandatory, not optional. Use it during packet formation to sharpen the visual thesis, anti-goals, and dominant visual plan rather than skipping it or replacing it with this skill alone.
+
+If the user explicitly named `Figma`, building in Figma is mandatory, not optional. Do not stop at packet generation or review-only output.
 
 ## Output Contract
 

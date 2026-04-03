@@ -25,6 +25,15 @@ Never say "still a bit weak" and stop there. Convert feedback into explicit issu
 
 If the user explicitly invokes `Frontend Design Discipline` the plugin, a review pass is mandatory.
 
+If the user explicitly names multiple companion tools or skills for the same task, all of them are mandatory unless one is genuinely unavailable.
+
+- Do not treat named companions as optional flavor.
+- Do not use one named skill as an excuse to skip another.
+- If the user named `Figma`, the workflow must actually reach Figma.
+- If the user named `Frontend Skill`, the workflow must actually use `$frontend-skill`.
+- If the user named `Frontend Design Discipline`, the workflow must actually use the direction + critic flow from this plugin.
+- If any named companion cannot be used, say that explicitly instead of silently substituting a different flow.
+
 - Do not treat the plugin mention as decorative context.
 - If you are also asked to build, design, or implement something, you must still run at least one critic or review-refine pass before your final answer.
 - Do not end on "first draft complete" unless an explicit review says it passes or the user stops the loop.
@@ -66,9 +75,15 @@ If the user has already given a bar, restate it briefly and use that exact stand
 
 For visually led landing pages, Figma screens, or premium frontend work:
 
+- if `$frontend-skill` was explicitly named, read and use it during direction-setting
 - run `$frontend-design-director` first
 - compile the brief into a build packet
 - send that packet to `$frontend-preflight-critic` before the first draft when delegation is available
+- treat that independent preflight verdict as the build gate
+- do not let the same thread that authored the packet declare it build-ready unless delegation was checked and found unavailable or disallowed
+- if `Figma` was explicitly named, continue into actual Figma build work after the packet passes; review-only is not sufficient
+
+The parent thread does not need to restate the full reviewer script each time. A short handoff to `$frontend-preflight-critic` should be enough because the default reviewer assumptions live in that skill.
 
 Do not let the first draft become the discovery phase. Discovery belongs in the packet.
 
