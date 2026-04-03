@@ -96,6 +96,7 @@ plugin 本体は `plugins/frontend-design-discipline/` にあります。
 - `frontend-brand-critic`
 - `frontend-composition-critic`
 - `frontend-copy-critic`
+- `frontend-zone-fit-critic`
 - `frontend-ui-auditor`
 - `review-refine-loop`
 
@@ -114,6 +115,7 @@ plugin 本体は `plugins/frontend-design-discipline/` にあります。
 
 - まず `frontend-design-director` で build packet を作る
 - build 前に `frontend-preflight-critic` で方向そのものを落とす
+- build するときは、見た目だけでなく構造も bar に含める。Figma なら auto layout / nested frames、HTML なら semantic containers / flex / grid を基本にし、主要な reading content を loose absolute placement にしない
 - ユーザーが `Frontend Design Discipline` を明示したら、少なくとも 1 回は critic skill または `review-refine-loop` を通す
 - ユーザーが `Figma`、`Frontend Design Discipline`、`Frontend Skill` など複数の companion を明示したら、それらは全部必須であり、どれか一つで代替してはいけない
 - subagent が使える環境なら、最初の critic pass は独立した subagent reviewer を優先する

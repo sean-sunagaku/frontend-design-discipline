@@ -35,6 +35,7 @@ Unless the user explicitly narrows or overrides the scope, assume all of the fol
   - first impression strength
   - generic SaaS risk
   - dominant visual plan
+  - structural layout discipline
   - font direction
   - opening-zone scale budget
   - zone line budget
@@ -71,21 +72,25 @@ Inspect these dimensions:
 2. visual thesis clarity
 3. genericity risk
 4. strength of the dominant visual plan
-5. typography direction and font fit
-6. opening-zone scale budget
-7. zone text line budget
-8. width and measure strategy
-9. spacing budget and text cluster readiness
-10. bounded text fit and safe padding
-11. zone-job discipline
-12. anti-goal usefulness
-13. primary action stance clarity
-14. review capture plan for section- and cluster-level inspection
+5. structural layout discipline
+6. typography direction and font fit
+7. opening-zone scale budget
+8. zone text line budget
+9. width and measure strategy
+10. spacing budget and text cluster readiness
+11. bounded text fit and safe padding
+12. zone-job discipline
+13. anti-goal usefulness
+14. primary action stance clarity
+15. review capture plan for section- and cluster-level inspection
 
 Mark it NG if:
 
 - the first viewport could still become a generic SaaS page
 - the plan does not name a strong visual anchor
+- the packet never says how the major zones will be structurally built
+- the likely build path is loose absolute placement instead of frames, wrappers, stacks, or semantic containers
+- primary reading content has no declared parent structure
 - the font direction is generic, unintentional, or unsupported by the intended mood
 - the primary opening-zone plan would likely require an oversized headline to feel important
 - the headline would overpower the brand mark, supporting copy, or CTA cluster
@@ -94,9 +99,13 @@ Mark it NG if:
 - a text-heavy or working zone is over-constrained to a narrow measure even though the surface clearly wants more horizontal room
 - the packet does not say which text-heavy areas must be built as one cluster rather than as separate text placements
 - heading/body/action spacing is still implied instead of locked as a spacing budget
+- the packet never states where the quiet band or breathing corridor should sit between side-by-side masses
+- the likely build path depends on manual line breaks in headings, labels, or buttons instead of healthier width, measure, or copy edits
 - the planned headings or proof-point titles are likely to overwrap in narrow containers
 - bounded copy areas such as CTA panels, proof items, or rail notes are likely to touch edges or break out of their frames
 - captions, helper lines, or CTA copy are likely to become stranded because no cluster structure or reserved clearance is defined
+- the likely result is not literal overlap but text and objects that will read as kissing, touching, or visually colliding
+- the packet treats structure as an implementation afterthought rather than part of the design direction
 - secondary zones would need tiny late-stage type reductions just to stay inside their boxes
 - the direction has no zone-level screenshot or crop review plan, so overlap and edge-touch risk would be discovered too late
 - multiple zones sound interchangeable
@@ -132,10 +141,13 @@ Do not emit the build-gate verdict from the packet-authoring thread.
 - If a zone cannot be pictured clearly, treat that as a real defect.
 - Prefer rejecting a weak direction before implementation over rescuing it later.
 - Treat weak font rationale and runaway opening-zone scale as first-order design defects, not polish.
+- Treat missing structural layout discipline as a first-order design defect, not as a later implementation task.
 - Treat uncontrolled wrapping and missing line budgets as structural defects, not typography cleanup.
 - Treat underused width and obviously over-constrained measures as structural defects, not as polish.
 - Treat text-fit risk in secondary zones as a structural defect, not as last-minute cleanup in Figma.
 - Treat missing text-cluster structure and missing section-level inspection plans as structural defects, not optional QA.
+- Treat missing breathing corridors between side-by-side masses as a structural defect, not as taste.
+- Treat forced manual line breaks as a structural defect when they are being used to rescue a weak measure.
 
 ## Subagent Guardrail
 
@@ -159,3 +171,4 @@ If the packet is incomplete, review the available material anyway and call missi
 - `P1 The anti-goals do not forbid any concrete failure modes, so the builder still has room to produce a normal feature-card page. Add explicit rejections for card grids, weak hero mockups, and filler dashboard patterns.`
 - `P2 The primary action stance is still generic and does not tell the builder how the flow should close emotionally. Define whether the commit should feel calm, decisive, exclusive, or invitational.`
 - `P2 The packet still assumes the closing copy and CTA can be placed ad hoc inside the final zone. Define one CTA cluster, its spacing budget, and the screenshot crops that will be used to verify it after the first draft.`
+- `P2 The support zone names the left and right masses but never reserves a quiet band between them, so the likely outcome is visual kissing rather than calm separation. Define the breathing corridor explicitly and protect it in the crop review plan.`

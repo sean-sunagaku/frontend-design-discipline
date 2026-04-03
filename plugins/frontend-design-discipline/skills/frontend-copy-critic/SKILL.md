@@ -39,6 +39,8 @@ Mark it NG if:
 - multiple neighboring blocks have similarly awkward wrapping, creating a templated feel
 - secondary-zone headings drift into a third line when the zone would clearly read better in one or two
 - boxed copy, primary action text, or small labels need awkward manual line breaks just to stay inside the frame
+- a heading, label, or button appears to contain a forced line break at an unnatural phrase boundary
+- the copy looks manually broken into lines instead of being set by a healthier measure
 - labels or notes wrap at awkward linguistic points
 - Japanese copy feels mechanically wrapped rather than intentionally set
 - filler copy weakens the intended hierarchy
@@ -63,6 +65,7 @@ Each issue must state:
 - Review copy in context of the layout.
 - Prefer deletion over rewriting when the text is unnecessary.
 - Treat awkward line breaks as a real defect.
+- Treat hard-coded or forced line breaks as defects unless they are clearly intentional editorial setting.
 - If one sentence could be cut with no loss, call that out.
 - If a zone lacks an explicit line budget, ask for one implicitly by failing uncontrolled wrapping.
 - Treat text escaping or nearly escaping a bounded area as both a copy and fit failure, not as harmless polish.
@@ -87,6 +90,7 @@ Sample prompt:
 - `P1 The main action says too little to conclude the flow. Replace the vague action with a direct product action.`
 - `P1 The helper text under the button is not broken technically, but it reads as noise and weakens the close. Remove it or move it out of the CTA cluster.`
 - `P2 The paragraph wraps at unnatural phrase boundaries, which makes it feel clipped. Rewrite the sentence or narrow the measure deliberately.`
+- `P2 The heading appears to be manually broken in the middle of a natural phrase. Widen the zone, improve the measure, or rewrite the line rather than forcing the break.`
 
 ## Not Your Job
 

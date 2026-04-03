@@ -52,6 +52,17 @@ Do not allow:
 
 This skill exists because late recovery is expensive. Bias toward over-defining the visual bar before the first build pass.
 
+Structure is part of the bar, not a later implementation detail.
+
+For Figma, HTML, and frontend builds, default to real layout structure first:
+
+- auto layout, stacks, grids, and nested frames in Figma
+- semantic sections, lists, flex, and grid in HTML/CSS
+- explicit parent-child hierarchy for every major zone and text cluster
+
+Do not treat loose absolute positioning as the default build method.
+Absolute placement is acceptable only for decorative layers, controlled overlays, or intentionally freeform hero art where the primary reading content still lives inside a stable structure.
+
 Although many examples below use landing-page language, the same discipline applies to any high-visibility surface:
 
 - a homepage or marketing page
@@ -158,7 +169,42 @@ For each major zone, state what the eye lands on first.
 
 If you cannot name the dominant visual in one sentence, the zone is too vague.
 
-### 7. Typography and Color Discipline
+### 7. Structural Layout Discipline
+
+Define how the artifact will be structurally built, not just how it should look.
+
+For every major zone, decide the structural parent and the local layout model:
+
+- stack / auto layout
+- grid
+- split layout with a protected breathing corridor
+- freeform art plane with structured text overlay
+
+For Figma, default to:
+
+- frames instead of loose groups for meaningful regions
+- nested frames that reflect zone -> cluster -> element hierarchy
+- auto layout for text clusters, CTA groups, note stacks, proof items, and repeated patterns
+- absolute positioning only for decoration, annotation accents, or deliberate hero artwork
+
+For HTML/frontend, default to:
+
+- semantic containers such as `header`, `main`, `section`, `aside`, `nav`, `footer`
+- flex or grid for primary layout
+- stable wrappers for text clusters and action groups
+- absolute positioning only for decorative or controlled overlay elements
+
+Reject plans where:
+
+- the builder could interpret the screen as "place things until it looks right"
+- important reading content has no clear parent container
+- text layers are expected to float independently in open space
+- a CTA, caption, or helper line has no structural cluster
+- a side-by-side zone has no declared parent layout and no protected corridor
+
+If the layout would become more stable by adding one more structural parent frame or wrapper, do that early instead of fixing drift later.
+
+### 8. Typography and Color Discipline
 
 Lock:
 
@@ -178,7 +224,7 @@ Examples:
 - `Display type should feel editorial and controlled, not startup-generic.`
 - `Body type should disappear into the reading flow and not compete with the hero.`
 
-### 8. Opening-Zone Scale Budget
+### 9. Opening-Zone Scale Budget
 
 Lock the scale of the primary opening zone before building.
 
@@ -202,7 +248,7 @@ Default bar:
 - the text block should not consume so much height that the CTA cluster feels trapped at the bottom
 - the opening zone must still feel balanced if the headline is reduced by one size step
 
-### 9. Zone Text Line Budget
+### 10. Zone Text Line Budget
 
 Lock the intended wrapping behavior for the rest of the surface before building.
 
@@ -228,12 +274,13 @@ Reject plans where:
 - every proof item wraps the same way, creating a repetitive column rhythm
 - body copy is long enough that layout density must rescue it
 - labels, chips, or CTA text are expected to wrap by default
+- the plan assumes manual line breaks will be inserted to rescue headings, labels, or buttons
 - zone titles, labels, or helper lines are likely to collide with frames, rails, or boxed areas
 - any bounded text area only works if the text sits right on the edge of its container
 
 If a zone looks better when the copy is shorter or the measure is wider, treat that as the correct fix, not as optional polish.
 
-### 10. Text Fit Discipline
+### 11. Text Fit Discipline
 
 For every bounded text area, also lock fit rules before building.
 
@@ -259,7 +306,7 @@ Reject plans where:
 - the layout depends on shrinking text too late in Figma to make it fit
 - secondary zones inherit the opening zone's drama as oversized text instead of settled rhythm
 
-### 11. Spacing Budget
+### 12. Spacing Budget
 
 For every major zone, lock the minimum spacing relationships between text clusters before building.
 
@@ -269,6 +316,7 @@ At minimum, define:
 - body to primary action gap
 - text cluster to nearby object clearance
 - safe padding inside bounded copy areas
+- breathing corridor between major side-by-side masses
 
 Prefer structural spacing over manual cleanup.
 
@@ -278,10 +326,12 @@ Reject plans where:
 - captions or helper lines are expected to live in leftover space
 - the zone only works if text is nudged late in Figma
 - the closest visual object can drift into the text area with no reserved clearance
+- the design relies on a mathematically small gap that will read as touching, kissing, or visually colliding
+- side-by-side text and visual masses have no intentional quiet band between them
 
 If a zone contains a closing cluster, note, proof item, or CTA stack, define it as one cluster with one spacing system rather than as separate floating text layers.
 
-### 12. Width and Measure Strategy
+### 13. Width and Measure Strategy
 
 For every major zone, decide whether it should stay narrow, widen, or span the surface more aggressively.
 
@@ -300,8 +350,9 @@ Reject plans where:
 - proof objects, rails, or cards collide with copy because the layout under-allocates width
 
 If widening a zone would clearly solve wrapping, overlap, or visual tension, choose widening first instead of shrinking text or stacking more rows.
+If a side-by-side zone needs calm, reserve an explicit breathing corridor instead of trusting incidental whitespace.
 
-### 13. Text Cluster Structure
+### 14. Text Cluster Structure
 
 Call out which text-heavy areas must be built as structured clusters rather than loose text placements.
 
@@ -318,14 +369,19 @@ Default bar:
 - prefer auto-layout or equivalent stack structure for text groups
 - keep captions, helper text, and actions attached to their parent copy cluster
 - reserve space for nearby cards, notes, rails, or screenshots instead of hoping text will miss them
+- keep the cluster inside an explicit parent frame, wrapper, or semantic container
+- merge elements into one structural cluster whenever they are meant to be read as one unit
 
 Reject plans where:
 
 - a text-heavy zone depends on absolute x/y nudging for routine reading content
 - a CTA, caption, or helper line looks likely to become stranded
 - the design assumes overlap will be caught only during final polish
+- a copy cluster and nearby object are separated only by a gap so small it will likely read as visually touching
+- the cluster has no real parent wrapper and only appears grouped because elements were placed near each other
+- a heading, label, or button likely depends on a forced manual line break instead of a healthier measure or wider zone
 
-### 14. Review Capture Plan
+### 15. Review Capture Plan
 
 Before build, define how the artifact will be checked after the first draft.
 
@@ -343,8 +399,9 @@ Examples of cluster-level crops:
 - final CTA closing cluster
 
 Do not rely on one full-page screenshot for signoff. If overlap, clipping, edge touch, or cramped spacing would only be visible in a section crop, plan to review that crop explicitly.
+When the design uses side-by-side masses, plan at least one crop that checks whether a real breathing corridor exists between them.
 
-### 15. Surface/Imagery Strategy
+### 16. Surface/Imagery Strategy
 
 State what kind of visual anchor will carry the artifact.
 
@@ -361,7 +418,7 @@ If the opening zone would still work with no image or no strong visual plane, th
 
 For app UI, this can be the main workspace material, dominant module, or focused object rather than an actual image.
 
-### 16. Primary Action Stance
+### 17. Primary Action Stance
 
 Define:
 
@@ -371,7 +428,7 @@ Define:
 
 Reject vague action language that does not conclude the flow or clarify the next step.
 
-### 17. Pass Bar
+### 18. Pass Bar
 
 Write 5 to 8 bullets describing what must be true for the work to pass.
 
@@ -385,8 +442,9 @@ Good:
 - `The working zone must reveal what the product lets you do, not just what it says.`
 - `The commit zone must feel deliberate, not like a stray button.`
 - `No text cluster may overlap, visually collide with, or nearly touch a nearby object in section-level review.`
+- `Primary reading content must live inside stable structural containers, not loose absolute placements.`
 
-### 18. Build Instruction
+### 19. Build Instruction
 
 End with a short directive paragraph that a builder can execute without reinterpretation.
 
