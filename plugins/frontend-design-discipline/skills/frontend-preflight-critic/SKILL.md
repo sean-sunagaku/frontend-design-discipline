@@ -100,6 +100,7 @@ Mark it NG if:
 - the packet does not say which text-heavy areas must be built as one cluster rather than as separate text placements
 - heading/body/action spacing is still implied instead of locked as a spacing budget
 - the packet never states where the quiet band or breathing corridor should sit between side-by-side masses
+- the likely build path depends on manual line breaks in headings, labels, or buttons instead of healthier width, measure, or copy edits
 - the planned headings or proof-point titles are likely to overwrap in narrow containers
 - bounded copy areas such as CTA panels, proof items, or rail notes are likely to touch edges or break out of their frames
 - captions, helper lines, or CTA copy are likely to become stranded because no cluster structure or reserved clearance is defined
@@ -146,6 +147,7 @@ Do not emit the build-gate verdict from the packet-authoring thread.
 - Treat text-fit risk in secondary zones as a structural defect, not as last-minute cleanup in Figma.
 - Treat missing text-cluster structure and missing section-level inspection plans as structural defects, not optional QA.
 - Treat missing breathing corridors between side-by-side masses as a structural defect, not as taste.
+- Treat forced manual line breaks as a structural defect when they are being used to rescue a weak measure.
 
 ## Subagent Guardrail
 

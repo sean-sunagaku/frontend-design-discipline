@@ -118,6 +118,7 @@ Do not start revising from memory.
 Do not sign off on visual stability from a full-page screenshot alone when a tighter crop would reveal overlap, edge touch, or stranded text.
 Do not default to shrinking type, cutting copy, or stacking more rows if the tighter crop shows the zone simply needs more width.
 Do not call a zone safe just because objects technically do not overlap; if they read as kissing or visually colliding, treat that as a real blocker.
+Do not accept forced manual line breaks as a normal fix when widening, regrouping, or rewriting would produce a more natural result.
 
 ### Step 2: Produce a bounded issue list
 

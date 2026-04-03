@@ -274,6 +274,7 @@ Reject plans where:
 - every proof item wraps the same way, creating a repetitive column rhythm
 - body copy is long enough that layout density must rescue it
 - labels, chips, or CTA text are expected to wrap by default
+- the plan assumes manual line breaks will be inserted to rescue headings, labels, or buttons
 - zone titles, labels, or helper lines are likely to collide with frames, rails, or boxed areas
 - any bounded text area only works if the text sits right on the edge of its container
 
@@ -369,6 +370,7 @@ Default bar:
 - keep captions, helper text, and actions attached to their parent copy cluster
 - reserve space for nearby cards, notes, rails, or screenshots instead of hoping text will miss them
 - keep the cluster inside an explicit parent frame, wrapper, or semantic container
+- merge elements into one structural cluster whenever they are meant to be read as one unit
 
 Reject plans where:
 
@@ -377,6 +379,7 @@ Reject plans where:
 - the design assumes overlap will be caught only during final polish
 - a copy cluster and nearby object are separated only by a gap so small it will likely read as visually touching
 - the cluster has no real parent wrapper and only appears grouped because elements were placed near each other
+- a heading, label, or button likely depends on a forced manual line break instead of a healthier measure or wider zone
 
 ### 15. Review Capture Plan
 
