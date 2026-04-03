@@ -36,6 +36,7 @@ Mark it NG if:
 - a headline is broad but the main action does not tell the user what to do
 - the headline has to become oversized because the wording lacks precision
 - secondary-zone titles only work because they are allowed to wrap too many lines
+- a major heading that should read in 1 line, or at most 2, is allowed to drift into a third line without a strong reason
 - multiple neighboring blocks have similarly awkward wrapping, creating a templated feel
 - secondary-zone headings drift into a third line when the zone would clearly read better in one or two
 - boxed copy, primary action text, or small labels need awkward manual line breaks just to stay inside the frame
@@ -65,6 +66,7 @@ Each issue must state:
 - Review copy in context of the layout.
 - Prefer deletion over rewriting when the text is unnecessary.
 - Treat awkward line breaks as a real defect.
+- Prefer a calm one-line heading when the wording and measure allow it; if not, accept two lines deliberately, but fail lazy third-line drift.
 - Treat hard-coded or forced line breaks as defects unless they are clearly intentional editorial setting.
 - If one sentence could be cut with no loss, call that out.
 - If a zone lacks an explicit line budget, ask for one implicitly by failing uncontrolled wrapping.

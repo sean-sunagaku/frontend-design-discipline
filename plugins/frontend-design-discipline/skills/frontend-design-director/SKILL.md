@@ -244,9 +244,10 @@ Reject plans where:
 
 Default bar:
 
-- desktop headline should usually read in 2 to 4 lines
+- desktop headline should prefer 1 line when the wording and width allow it, and should usually stay within 1 to 2 lines
 - the text block should not consume so much height that the CTA cluster feels trapped at the bottom
 - the opening zone must still feel balanced if the headline is reduced by one size step
+- if the opening headline needs a third line, first try widening the measure, tightening the wording, or reducing the copy load before accepting it
 
 ### 10. Zone Text Line Budget
 
@@ -262,7 +263,7 @@ For each major zone, define the target line count for:
 
 Default bar:
 
-- secondary or detail zone headings should usually land in 1 to 3 lines
+- secondary or detail zone headings should prefer 1 line when natural and should usually stay within 1 to 2 lines
 - supporting paragraphs should usually land in 1 to 4 lines depending on measure
 - proof-point titles should usually stay within 1 to 2 lines
 - proof-point body copy should usually stay within 1 to 3 lines
@@ -271,6 +272,7 @@ Default bar:
 Reject plans where:
 
 - secondary zones only work because narrow columns force awkward 3-line or 4-line headings
+- the plan accepts a 2-line or 3-line heading too early even though widening the zone or shortening the wording would likely keep it to 1 line
 - every proof item wraps the same way, creating a repetitive column rhythm
 - body copy is long enough that layout density must rescue it
 - labels, chips, or CTA text are expected to wrap by default
@@ -279,6 +281,7 @@ Reject plans where:
 - any bounded text area only works if the text sits right on the edge of its container
 
 If a zone looks better when the copy is shorter or the measure is wider, treat that as the correct fix, not as optional polish.
+Do not normalize overwrapped headings as a style. One line is preferred for major headings when it can be achieved cleanly; two lines is the normal upper bound.
 
 ### 11. Text Fit Discipline
 

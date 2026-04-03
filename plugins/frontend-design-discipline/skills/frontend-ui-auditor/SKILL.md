@@ -65,6 +65,7 @@ Mark it NG if:
 - text appears to slip outside a frame, box, pill, or button, even slightly
 - text and nearby objects do not overlap technically but still read as touching, kissing, or visually colliding
 - secondary-zone text only fits because the box is overfilled and visually tense
+- a major heading that should read in 1 line, or at most 2, has drifted into a third line because the zone was never widened enough
 - headings, body copy, captions, and actions do not read as one stable cluster
 - a CTA, caption, or helper line feels stranded rather than attached to a clear parent cluster
 - the obvious fix is to widen the zone, column, or cluster area, but the layout instead keeps squeezing text vertically
@@ -100,6 +101,7 @@ Each issue must explain:
 - If a box looks like it needs one more line of padding or one less line of text, fail it now rather than calling it acceptable.
 - If a text-heavy zone only becomes readable after mentally separating pieces, fail it and ask for a more stable cluster.
 - If widening the available measure would clearly stabilize the zone, prefer that fix before shrinking type or forcing additional rows.
+- If a heading has fallen into a preventable third line, prefer widening, rewriting, or regrouping before accepting it as stable.
 - If the gap is technically present but still reads as tense or kissing, fail it and ask for a clearer breathing corridor.
 
 ## Subagent Use
