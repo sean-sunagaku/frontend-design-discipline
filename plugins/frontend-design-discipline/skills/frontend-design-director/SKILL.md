@@ -1,6 +1,6 @@
 ---
 name: frontend-design-director
-description: Create a locked design-direction packet before building a visually sensitive landing page, Figma screen, or premium frontend UI. Use when the user wants a strong first impression, wants to avoid generic or "ugly" output, or when quality depends on art direction and reject lists before implementation.
+description: Create a locked design-direction packet before building a visually sensitive landing page, app surface, dashboard, feature view, Figma screen, or premium frontend UI. Use when the user wants a strong first impression, wants to avoid generic or "ugly" output, or when quality depends on art direction and reject lists before implementation.
 ---
 
 # Frontend Design Director
@@ -17,6 +17,15 @@ Turn the user's brief into a strict build packet that defines:
 4. what bar the work must clear before it is considered done
 
 Do not start drawing, coding, or composing screens until this packet exists.
+
+This skill is not only for landing pages. Use the same packet discipline for:
+
+- app home screens
+- dashboards
+- workflow or task views
+- editors and detail views
+- settings or admin surfaces
+- multi-panel product screens
 
 ## Core Rule
 
@@ -42,6 +51,15 @@ Do not allow:
 - "we can fix it in the review loop" as the primary plan
 
 This skill exists because late recovery is expensive. Bias toward over-defining the visual bar before the first build pass.
+
+Although many examples below use landing-page language, the same discipline applies to any high-visibility surface:
+
+- a homepage or marketing page
+- an app home or dashboard
+- a feature screen or workflow view
+- a settings, reporting, or management surface
+
+When the artifact is not a landing page, translate the examples rather than ignoring the rule. A `hero` usually maps to the primary opening zone, and `final CTA` usually maps to the main commit or next-step area.
 
 ## Required Build Packet
 
@@ -82,28 +100,65 @@ Good:
 - `No interchangeable three-card feature row`
 - `No decorative gradients standing in for product imagery`
 
-### 4. Section Jobs
+### 4. Surface Mapping
 
-Define one job per section.
+Before defining jobs, map the artifact into major surface zones.
+
+For landing pages, a common mapping is:
 
 - Hero
 - Support
 - Detail
 - Final CTA
 
-Each section must have:
+For application UI, use the closest equivalent:
+
+- primary opening or identity zone
+- main working zone
+- supporting or contextual zone
+- focused detail or inspection zone
+- commit, save, confirm, or next-step zone
+
+Examples:
+
+- dashboard: opening identity strip, overview workspace, active thread/focus panel, primary action area
+- workflow screen: entry context, main task canvas, side context, commit/continue area
+- settings page: page identity, grouped controls, risky-action area, save/apply zone
+- editor/detail view: object identity, main canvas, inspector/context rail, save/publish zone
+
+The names do not matter. The dominance and job of each zone do.
+
+### 5. Zone Jobs
+
+Define one job per major zone.
+
+For landing pages, this often means:
+
+- Hero
+- Support
+- Detail
+- Final CTA
+
+For app screens or product surfaces, map the same structure to:
+
+- primary opening zone
+- secondary or supporting zones
+- focused detail zone
+- closing action or commit zone
+
+Each zone must have:
 
 - one dominant visual idea
 - one primary takeaway
 - one reason it exists
 
-### 5. Dominant Visual Plan
+### 6. Dominant Visual Plan
 
-For each section, state what the eye lands on first.
+For each major zone, state what the eye lands on first.
 
-If you cannot name the dominant visual in one sentence, the section is too vague.
+If you cannot name the dominant visual in one sentence, the zone is too vague.
 
-### 6. Typography and Color Discipline
+### 7. Typography and Color Discipline
 
 Lock:
 
@@ -123,45 +178,45 @@ Examples:
 - `Display type should feel editorial and controlled, not startup-generic.`
 - `Body type should disappear into the reading flow and not compete with the hero.`
 
-### 7. Hero Scale Budget
+### 8. Opening-Zone Scale Budget
 
-Lock the hero typography before building.
+Lock the scale of the primary opening zone before building.
 
 State:
 
 - target line count for the headline on desktop
 - target width of the text column
-- whether the hero visual or the headline is the louder element
-- what must remain comfortably visible in the first viewport besides the headline
+- whether the opening visual or the headline is the louder element
+- what must remain comfortably visible in the first view besides the headline
 
 Reject plans where:
 
 - the headline becomes the entire composition
 - supporting copy and CTA are pushed into a cramped leftover corner
 - the brand mark becomes visually negligible next to the headline
-- the hero only works because the headline is huge
+- the opening zone only works because the headline is huge
 
 Default bar:
 
 - desktop headline should usually read in 2 to 4 lines
 - the text block should not consume so much height that the CTA cluster feels trapped at the bottom
-- the hero must still feel balanced if the headline is reduced by one size step
+- the opening zone must still feel balanced if the headline is reduced by one size step
 
-### 8. Section Text Line Budget
+### 9. Zone Text Line Budget
 
-Lock the intended wrapping behavior for the rest of the page before building.
+Lock the intended wrapping behavior for the rest of the surface before building.
 
-For each section, define the target line count for:
+For each major zone, define the target line count for:
 
-- section eyebrow
-- section heading
+- zone eyebrow
+- zone heading
 - supporting copy
 - proof points or column titles
 - CTA labels
 
 Default bar:
 
-- support/detail section headings should usually land in 1 to 3 lines
+- secondary or detail zone headings should usually land in 1 to 3 lines
 - supporting paragraphs should usually land in 1 to 4 lines depending on measure
 - proof-point titles should usually stay within 1 to 2 lines
 - proof-point body copy should usually stay within 1 to 3 lines
@@ -169,36 +224,69 @@ Default bar:
 
 Reject plans where:
 
-- lower sections only work because narrow columns force awkward 3-line or 4-line headings
+- secondary zones only work because narrow columns force awkward 3-line or 4-line headings
 - every proof item wraps the same way, creating a repetitive column rhythm
 - body copy is long enough that layout density must rescue it
 - labels, chips, or CTA text are expected to wrap by default
+- zone titles, labels, or helper lines are likely to collide with frames, rails, or boxed areas
+- any bounded text area only works if the text sits right on the edge of its container
 
-If a section looks better when the copy is shorter or the measure is wider, treat that as the correct fix, not as optional polish.
+If a zone looks better when the copy is shorter or the measure is wider, treat that as the correct fix, not as optional polish.
 
-### 9. Imagery Strategy
+### 10. Text Fit Discipline
 
-State what kind of visual anchor will carry the page.
+For every bounded text area, also lock fit rules before building.
+
+This includes:
+
+- CTA panels
+- support proof items
+- detail thread notes
+- pills, labels, and badges
+- boxed or framed supporting text
+
+Default bar:
+
+- text should keep visible breathing room on all sides
+- no important label should touch or nearly touch a frame edge
+- no section should depend on three-line mini paragraphs inside small cards or boxes
+- secondary zones should feel quieter than the opening zone, not more cramped than the opening zone
+
+Reject plans where:
+
+- text is likely to appear visually outside a box, frame, or panel
+- the container only works at one exact line break
+- the layout depends on shrinking text too late in Figma to make it fit
+- secondary zones inherit the opening zone's drama as oversized text instead of settled rhythm
+
+### 11. Surface/Imagery Strategy
+
+State what kind of visual anchor will carry the artifact.
 
 - real-looking workspace
 - editorial crop
 - product surface
 - annotated timeline
 - photography
+- data surface
+- tool canvas
+- focused inspector
 
-If the first screen would still work with no image or no strong visual plane, the plan is weak.
+If the opening zone would still work with no image or no strong visual plane, the plan is weak.
 
-### 10. CTA Stance
+For app UI, this can be the main workspace material, dominant module, or focused object rather than an actual image.
+
+### 12. Primary Action Stance
 
 Define:
 
-- the main action
-- the emotional tone of the CTA
-- what the close should feel like
+- the main action or commit point
+- the emotional tone of that action
+- what the final commit should feel like
 
-Reject vague CTA language that does not conclude the page.
+Reject vague action language that does not conclude the flow or clarify the next step.
 
-### 11. Pass Bar
+### 13. Pass Bar
 
 Write 5 to 8 bullets describing what must be true for the work to pass.
 
@@ -207,10 +295,12 @@ These must be visual and observable.
 Good:
 
 - `The first viewport cannot be mistaken for a generic task-management SaaS page.`
-- `The hero must read as one composition, not two equal columns in negotiation.`
-- `Every lower section must have a dominant subject, not a row of similar blocks.`
+- `The opening zone must read as one composition, not two equal columns in negotiation.`
+- `Every secondary zone must have a dominant subject, not a row of similar blocks.`
+- `The working zone must reveal what the product lets you do, not just what it says.`
+- `The commit zone must feel deliberate, not like a stray button.`
 
-### 12. Build Instruction
+### 14. Build Instruction
 
 End with a short directive paragraph that a builder can execute without reinterpretation.
 
@@ -225,7 +315,7 @@ This review can happen at any of these design-stage checkpoints:
 - raw brief
 - first direction notes
 - locked build packet
-- rough wireframe or low-fidelity section plan
+- rough wireframe or low-fidelity zone plan
 
 The earlier the review happens, the cheaper the correction.
 
@@ -238,9 +328,11 @@ If subagents are available and the user did not forbid delegation:
 - if it returns `FAIL`, revise the packet locally and run the preflight again
 - route to `$frontend-brand-critic` or `$frontend-composition-critic` as a second opinion only when the main risk is obvious or still unresolved after preflight
 
-If subagents are unavailable, run the same preflight in-thread.
+If an independent reviewer subagent cannot run, stop and report that the build gate is blocked. Do not substitute a same-thread preflight.
 
 Do not say "the packet is build-ready" from the same pass that authored the packet unless you have already checked that delegation is unavailable or disallowed in the current session.
+Do not manufacture a `PASS` block yourself just to satisfy the gate. The gate is satisfied only by an actual critic pass on the current packet.
+Same-thread fallback is invalid for this gate. If independence cannot be obtained, the workflow must pause rather than pretending the gate passed.
 
 Do not proceed to build until the packet either:
 
@@ -283,7 +375,7 @@ In normal use, the parent prompt can stay much shorter than this. A simple hando
 ## Relationship To Other Skills
 
 - Use this skill before `$review-refine-loop` when the work is visually sensitive.
-- Use this skill alongside `$frontend-skill` when the brief calls for a strong landing page or hero-led UI. Compress `$frontend-skill` into the packet instead of jumping straight into composition.
+- Use this skill alongside `$frontend-skill` when the brief calls for a strong landing page, opening surface, or premium product UI. Compress `$frontend-skill` into the packet instead of jumping straight into composition.
 - After a build exists, use the narrow critic skills for targeted review.
 
 If the user explicitly named `$frontend-skill`, that is mandatory, not optional. Use it during packet formation to sharpen the visual thesis, anti-goals, and dominant visual plan rather than skipping it or replacing it with this skill alone.
@@ -297,14 +389,16 @@ Return the build packet in this order:
 1. First Impression
 2. Visual Thesis
 3. Anti-Goals
-4. Section Jobs
-5. Dominant Visual Plan
-6. Typography and Color Discipline
-7. Hero Scale Budget
-8. Section Text Line Budget
-9. Imagery Strategy
-10. CTA Stance
-11. Pass Bar
-12. Build Instruction
+4. Surface Mapping
+5. Zone Jobs
+6. Dominant Visual Plan
+7. Typography and Color Discipline
+8. Opening-Zone Scale Budget
+9. Zone Text Line Budget
+10. Text Fit Discipline
+11. Surface/Imagery Strategy
+12. Primary Action Stance
+13. Pass Bar
+14. Build Instruction
 
 Do not pad it with generic design commentary.
