@@ -91,6 +91,8 @@ Mark it NG if:
 - the packet never says how the major zones will be structurally built
 - the likely build path is loose absolute placement instead of frames, wrappers, stacks, or semantic containers
 - primary reading content has no declared parent structure
+- the likely build path begins with free-placed text and rectangles instead of section frames, rows, cards, strips, rails, or semantic clusters
+- a board-like or surface-like zone is described visually but not decomposed into structured children such as rows, cards, notes, rails, or copy groups
 - the font direction is generic, unintentional, or unsupported by the intended mood
 - the primary opening-zone plan would likely require an oversized headline to feel important
 - the primary opening-zone plan would likely require a 3-line or 4-line headline even though the zone should read better as a 1-line or 2-line opening
@@ -108,6 +110,7 @@ Mark it NG if:
 - captions, helper lines, or CTA copy are likely to become stranded because no cluster structure or reserved clearance is defined
 - the likely result is not literal overlap but text and objects that will read as kissing, touching, or visually colliding
 - the packet treats structure as an implementation afterthought rather than part of the design direction
+- the packet allows primary content to float independently when those elements should clearly live inside a frame, row, card, list item, strip, or text cluster
 - secondary zones would need tiny late-stage type reductions just to stay inside their boxes
 - the direction has no zone-level screenshot or crop review plan, so overlap and edge-touch risk would be discovered too late
 - multiple zones sound interchangeable
@@ -144,6 +147,8 @@ Do not emit the build-gate verdict from the packet-authoring thread.
 - Prefer rejecting a weak direction before implementation over rescuing it later.
 - Treat weak font rationale and runaway opening-zone scale as first-order design defects, not polish.
 - Treat missing structural layout discipline as a first-order design defect, not as a later implementation task.
+- Treat missing parent-child layout structure as a first-order design defect, not as a cosmetic implementation choice.
+- Treat plans that begin from floating text and rectangles instead of frames, rows, cards, and clusters as structurally weak.
 - Treat uncontrolled wrapping and missing line budgets as structural defects, not typography cleanup.
 - Treat preventable 3-line headings as structural defects when a healthier measure or shorter wording would keep them to 1 line or 2.
 - Treat underused width and obviously over-constrained measures as structural defects, not as polish.

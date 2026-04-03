@@ -68,6 +68,8 @@ Mark it NG if:
 - a major heading that should read in 1 line, or at most 2, has drifted into a third line because the zone was never widened enough
 - headings, body copy, captions, and actions do not read as one stable cluster
 - a CTA, caption, or helper line feels stranded rather than attached to a clear parent cluster
+- the screen reads as primary text and shapes placed directly on the canvas instead of stable frames, rows, cards, strips, rails, or clusters
+- objects are visually separated only by manual placement and not by a believable parent structure
 - the obvious fix is to widen the zone, column, or cluster area, but the layout instead keeps squeezing text vertically
 - the screen keeps large amounts of empty horizontal space while text-heavy areas wrap, collide, or crowd each other
 - side-by-side masses have no calm breathing corridor between them, so the layout reads crowded even with nominal spacing
@@ -100,6 +102,7 @@ Each issue must explain:
 - When both full-page and section crops exist, trust the tighter crop for overlap and spacing calls.
 - If a box looks like it needs one more line of padding or one less line of text, fail it now rather than calling it acceptable.
 - If a text-heavy zone only becomes readable after mentally separating pieces, fail it and ask for a more stable cluster.
+- If the surface looks composed from loose text and shapes instead of real parent structure, fail it before polish and ask for a structural rebuild.
 - If widening the available measure would clearly stabilize the zone, prefer that fix before shrinking type or forcing additional rows.
 - If a heading has fallen into a preventable third line, prefer widening, rewriting, or regrouping before accepting it as stable.
 - If the gap is technically present but still reads as tense or kissing, fail it and ask for a clearer breathing corridor.
