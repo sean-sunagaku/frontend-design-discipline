@@ -9,6 +9,8 @@ description: Audit a frontend screen, landing page, dashboard, workflow view, ap
 
 Use this skill when the question is not "is the idea good?" but "will this UI hold up in reality?" Review visible stability, readability, and fit.
 
+If the problem is highly local, such as one section crop, one CTA cluster, or one note rail that may be touching or cramped, prefer `$frontend-zone-fit-critic`.
+
 If no artifact exists yet, review the proposed layout structure for likely fragility. If the plan already looks breakpoint-fragile, text-heavy, or edge-hugging, fail it before implementation.
 
 ## What To Check
@@ -44,7 +46,8 @@ Inspect these failure modes:
 5. text fit inside bounded areas such as cards, rails, panels, or buttons
 6. text clusters that are visually detached, stranded, or assembled with fragile spacing
 7. underused horizontal space that creates avoidable wrapping, crowding, or overlap
-8. likely breakpoint failures at common desktop and mobile widths
+8. missing breathing room between side-by-side masses
+9. likely breakpoint failures at common desktop and mobile widths
 
 Default widths to reason through:
 
@@ -60,11 +63,13 @@ Mark it NG if:
 - a full-page view looks acceptable but a zone or cluster crop reveals overlap, collision, or cramped spacing
 - bounded areas such as cards, mockups, and rails look one line away from failure
 - text appears to slip outside a frame, box, pill, or button, even slightly
+- text and nearby objects do not overlap technically but still read as touching, kissing, or visually colliding
 - secondary-zone text only fits because the box is overfilled and visually tense
 - headings, body copy, captions, and actions do not read as one stable cluster
 - a CTA, caption, or helper line feels stranded rather than attached to a clear parent cluster
 - the obvious fix is to widen the zone, column, or cluster area, but the layout instead keeps squeezing text vertically
 - the screen keeps large amounts of empty horizontal space while text-heavy areas wrap, collide, or crowd each other
+- side-by-side masses have no calm breathing corridor between them, so the layout reads crowded even with nominal spacing
 - contrast is too weak for routine reading
 - headline scale is so aggressive that the opening-zone balance depends on luck
 - secondary-zone text blocks rely on narrow columns and overwrapping to fit
@@ -95,6 +100,7 @@ Each issue must explain:
 - If a box looks like it needs one more line of padding or one less line of text, fail it now rather than calling it acceptable.
 - If a text-heavy zone only becomes readable after mentally separating pieces, fail it and ask for a more stable cluster.
 - If widening the available measure would clearly stabilize the zone, prefer that fix before shrinking type or forcing additional rows.
+- If the gap is technically present but still reads as tense or kissing, fail it and ask for a clearer breathing corridor.
 
 ## Subagent Use
 
@@ -117,6 +123,7 @@ Sample prompt:
 - `P1 Supporting text is not clipped, but it sits so close to the edge that it reads as broken. Increase container padding or shorten the copy.`
 - `P1 The right rail is readable on desktop but too fragile for narrower widths. Reduce copy load or reflow the structure before implementation.`
 - `P1 The final CTA looks acceptable in the full-page view, but the section crop shows the body and action cluster colliding with nearby elements. Rebuild the closing cluster as one stacked unit and reserve more clearance.`
+- `P1 The copy and proof object do not overlap, but the gap is so small that the section still reads as visually colliding. Increase the breathing corridor or widen the zone before trying smaller type changes.`
 - `P2 Contrast in the idle state is too low for routine scanning. Raise value contrast without changing the whole palette.`
 
 ## Not Your Job

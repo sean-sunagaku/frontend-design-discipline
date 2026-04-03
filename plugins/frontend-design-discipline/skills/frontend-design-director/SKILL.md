@@ -269,6 +269,7 @@ At minimum, define:
 - body to primary action gap
 - text cluster to nearby object clearance
 - safe padding inside bounded copy areas
+- breathing corridor between major side-by-side masses
 
 Prefer structural spacing over manual cleanup.
 
@@ -278,6 +279,8 @@ Reject plans where:
 - captions or helper lines are expected to live in leftover space
 - the zone only works if text is nudged late in Figma
 - the closest visual object can drift into the text area with no reserved clearance
+- the design relies on a mathematically small gap that will read as touching, kissing, or visually colliding
+- side-by-side text and visual masses have no intentional quiet band between them
 
 If a zone contains a closing cluster, note, proof item, or CTA stack, define it as one cluster with one spacing system rather than as separate floating text layers.
 
@@ -300,6 +303,7 @@ Reject plans where:
 - proof objects, rails, or cards collide with copy because the layout under-allocates width
 
 If widening a zone would clearly solve wrapping, overlap, or visual tension, choose widening first instead of shrinking text or stacking more rows.
+If a side-by-side zone needs calm, reserve an explicit breathing corridor instead of trusting incidental whitespace.
 
 ### 13. Text Cluster Structure
 
@@ -324,6 +328,7 @@ Reject plans where:
 - a text-heavy zone depends on absolute x/y nudging for routine reading content
 - a CTA, caption, or helper line looks likely to become stranded
 - the design assumes overlap will be caught only during final polish
+- a copy cluster and nearby object are separated only by a gap so small it will likely read as visually touching
 
 ### 14. Review Capture Plan
 
@@ -343,6 +348,7 @@ Examples of cluster-level crops:
 - final CTA closing cluster
 
 Do not rely on one full-page screenshot for signoff. If overlap, clipping, edge touch, or cramped spacing would only be visible in a section crop, plan to review that crop explicitly.
+When the design uses side-by-side masses, plan at least one crop that checks whether a real breathing corridor exists between them.
 
 ### 15. Surface/Imagery Strategy
 

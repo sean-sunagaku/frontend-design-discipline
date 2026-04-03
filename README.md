@@ -96,6 +96,7 @@ plugin 本体は `plugins/frontend-design-discipline/` にあります。
 - `frontend-brand-critic`
 - `frontend-composition-critic`
 - `frontend-copy-critic`
+- `frontend-zone-fit-critic`
 - `frontend-ui-auditor`
 - `review-refine-loop`
 

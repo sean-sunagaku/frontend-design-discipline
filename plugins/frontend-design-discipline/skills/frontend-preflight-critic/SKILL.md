@@ -94,9 +94,11 @@ Mark it NG if:
 - a text-heavy or working zone is over-constrained to a narrow measure even though the surface clearly wants more horizontal room
 - the packet does not say which text-heavy areas must be built as one cluster rather than as separate text placements
 - heading/body/action spacing is still implied instead of locked as a spacing budget
+- the packet never states where the quiet band or breathing corridor should sit between side-by-side masses
 - the planned headings or proof-point titles are likely to overwrap in narrow containers
 - bounded copy areas such as CTA panels, proof items, or rail notes are likely to touch edges or break out of their frames
 - captions, helper lines, or CTA copy are likely to become stranded because no cluster structure or reserved clearance is defined
+- the likely result is not literal overlap but text and objects that will read as kissing, touching, or visually colliding
 - secondary zones would need tiny late-stage type reductions just to stay inside their boxes
 - the direction has no zone-level screenshot or crop review plan, so overlap and edge-touch risk would be discovered too late
 - multiple zones sound interchangeable
@@ -136,6 +138,7 @@ Do not emit the build-gate verdict from the packet-authoring thread.
 - Treat underused width and obviously over-constrained measures as structural defects, not as polish.
 - Treat text-fit risk in secondary zones as a structural defect, not as last-minute cleanup in Figma.
 - Treat missing text-cluster structure and missing section-level inspection plans as structural defects, not optional QA.
+- Treat missing breathing corridors between side-by-side masses as a structural defect, not as taste.
 
 ## Subagent Guardrail
 
@@ -159,3 +162,4 @@ If the packet is incomplete, review the available material anyway and call missi
 - `P1 The anti-goals do not forbid any concrete failure modes, so the builder still has room to produce a normal feature-card page. Add explicit rejections for card grids, weak hero mockups, and filler dashboard patterns.`
 - `P2 The primary action stance is still generic and does not tell the builder how the flow should close emotionally. Define whether the commit should feel calm, decisive, exclusive, or invitational.`
 - `P2 The packet still assumes the closing copy and CTA can be placed ad hoc inside the final zone. Define one CTA cluster, its spacing budget, and the screenshot crops that will be used to verify it after the first draft.`
+- `P2 The support zone names the left and right masses but never reserves a quiet band between them, so the likely outcome is visual kissing rather than calm separation. Define the breathing corridor explicitly and protect it in the crop review plan.`
