@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontend Structure Auditor"
+  short_description: "Audit frames, containment, and overflow"
+  default_prompt: "Use $frontend-structure-auditor to review this artifact or build packet for frame hierarchy, containment, auto layout, overflow, and structural fit before build or signoff."

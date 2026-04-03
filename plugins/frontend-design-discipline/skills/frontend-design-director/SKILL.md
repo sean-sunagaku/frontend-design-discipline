@@ -393,7 +393,51 @@ Reject plans where:
 - the cluster has no real parent wrapper and only appears grouped because elements were placed near each other
 - a heading, label, or button likely depends on a forced manual line break instead of a healthier measure or wider zone
 
-### 15. Review Capture Plan
+### 15. Structural Audit Discipline
+
+Before screenshots or signoff, define how each section will be audited structurally.
+
+Use two explicit lists:
+
+- prohibited actions
+- deliverables
+
+Required structural rules:
+
+- text clusters are not allowed to use fixed height
+- text-containing parent frames should default to `HUG`
+- rows or cards that may grow with body copy should use `counterAxisSizingMode = AUTO`
+- absolute positioning is allowed only for decoration
+- after each section is created, verify `child bounds <= parent bounds`
+- if one overflow exists, that section is incomplete
+- do not move to screenshot verification until the structure audit result is written down
+- final handoff must include both the design result and the audit result
+
+Prohibited actions:
+
+- fixed-height text-containing frames
+- meaningful absolute positioning
+- scattered `text` and `rectangle` nodes without a structural parent
+- moving on to review while overflow remains
+
+Deliverables:
+
+- section-by-section structural explanation
+- overflow audit result
+- list of nodes that used absolute positioning
+- corrected screenshots after the structure audit passes
+- if the structure still feels fragile, route a dedicated pass to `$frontend-structure-auditor` before screenshot signoff
+
+Completion condition:
+
+- the section is complete only when there is no text-containing fixed-height frame
+- the section is complete only when no overflow remains
+- the section is complete only when absolute positioning is decorative only
+- the section is complete only when screenshots show no clipping or cut-off content
+
+Do not let the next section begin until the current section has a PASS on these structural checks.
+
+### 16. Review Capture Plan
 
 Before build, define how the artifact will be checked after the first draft.
 
@@ -402,6 +446,7 @@ Default bar:
 - take one full-artifact screenshot for overall composition
 - take one screenshot per major zone
 - take additional screenshots for text-heavy or bounded clusters
+- if structural containment is in doubt, plan a `$frontend-structure-auditor` pass before the screenshot review
 
 Examples of cluster-level crops:
 
@@ -412,8 +457,9 @@ Examples of cluster-level crops:
 
 Do not rely on one full-page screenshot for signoff. If overlap, clipping, edge touch, or cramped spacing would only be visible in a section crop, plan to review that crop explicitly.
 When the design uses side-by-side masses, plan at least one crop that checks whether a real breathing corridor exists between them.
+Capture screenshots only after the structural audit result has been produced for that section.
 
-### 16. Surface/Imagery Strategy
+### 17. Surface/Imagery Strategy
 
 State what kind of visual anchor will carry the artifact.
 
@@ -430,7 +476,7 @@ If the opening zone would still work with no image or no strong visual plane, th
 
 For app UI, this can be the main workspace material, dominant module, or focused object rather than an actual image.
 
-### 17. Primary Action Stance
+### 18. Primary Action Stance
 
 Define:
 
@@ -440,7 +486,7 @@ Define:
 
 Reject vague action language that does not conclude the flow or clarify the next step.
 
-### 18. Pass Bar
+### 19. Pass Bar
 
 Write 5 to 8 bullets describing what must be true for the work to pass.
 
@@ -456,7 +502,7 @@ Good:
 - `No text cluster may overlap, visually collide with, or nearly touch a nearby object in section-level review.`
 - `Primary reading content must live inside stable structural containers, not loose absolute placements.`
 
-### 19. Build Instruction
+### 20. Build Instruction
 
 End with a short directive paragraph that a builder can execute without reinterpretation.
 
@@ -552,9 +598,11 @@ Return the build packet in this order:
 8. Opening-Zone Scale Budget
 9. Zone Text Line Budget
 10. Text Fit Discipline
-11. Surface/Imagery Strategy
-12. Primary Action Stance
-13. Pass Bar
-14. Build Instruction
+11. Structural Audit Discipline
+12. Review Capture Plan
+13. Surface/Imagery Strategy
+14. Primary Action Stance
+15. Pass Bar
+16. Build Instruction
 
 Do not pad it with generic design commentary.

@@ -92,6 +92,8 @@ It should define the parent structure for each zone so the build starts from sec
 The packet should also lock spacing budget, text-cluster structure, and a review capture plan so overlap and text-fit problems are not discovered only at the final screenshot.
 It should also lock width and measure strategy so zones that need more horizontal room are widened intentionally instead of becoming vertically cramped later.
 It should explicitly reserve breathing corridors between side-by-side masses so "not overlapping" is not mistaken for "visually calm."
+The packet should also lock structural audit discipline so each section is only complete when child bounds stay within parent bounds, overflow is gone, and the structure audit result is written down before screenshot review.
+If the artifact is structurally fragile, the packet should also name `$frontend-structure-auditor` as the dedicated reviewer for that pass.
 
 ## Standard Cycle
 
@@ -142,6 +144,8 @@ Make one focused pass that addresses the selected issues.
 - If the layout is still built from loose absolute placements, stabilize the structure before polishing typography.
 - Prefer adding the correct parent wrapper, stack, auto layout, grid, or semantic container before tweaking local coordinates.
 - If the surface still looks like text and shapes were placed directly on the canvas, regroup it into section frames, rows, cards, strips, rails, or clusters before surface polish.
+- Do not move to screenshot review until the current section's structure audit has been produced.
+- Treat any section with overflow as incomplete until the overflow is fixed and re-audited.
 
 ### Step 4: Run an independent review
 
@@ -169,6 +173,7 @@ When subagents are available, prefer an independent reviewer subagent.
 For frontend and design tasks, route the review to the narrowest critic skill that matches the issue:
 
 - pre-build direction risk -> `$frontend-preflight-critic`
+- tree-level structural layout integrity -> `$frontend-structure-auditor`
 - composition and hierarchy -> `$frontend-composition-critic`
 - brand signal and first impression -> `$frontend-brand-critic`
 - copy, wrapping, and helper text noise -> `$frontend-copy-critic`
