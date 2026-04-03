@@ -39,9 +39,11 @@ Unless the user explicitly narrows or overrides the scope, assume all of the fol
   - font direction
   - opening-zone scale budget
   - zone line budget
-  - width and measure strategy
-  - spacing budget and text cluster structure
-  - primary action stance
+- width and measure strategy
+- spacing budget and text cluster structure
+- structural audit discipline and section completion criteria
+- structural audit routing to `$frontend-structure-auditor` when tree-level structure is fragile
+- primary action stance
 - the output must follow the skill's PASS/FAIL contract with remaining issues only
 
 This means a short parent prompt such as:
@@ -93,6 +95,12 @@ Mark it NG if:
 - primary reading content has no declared parent structure
 - the likely build path begins with free-placed text and rectangles instead of section frames, rows, cards, strips, rails, or semantic clusters
 - a board-like or surface-like zone is described visually but not decomposed into structured children such as rows, cards, notes, rails, or copy groups
+- the packet never states the structural audit rules for section completion
+- the packet never says which dedicated reviewer will audit tree-level structure when it is fragile
+- the packet does not require child bounds to stay within parent bounds after each section
+- the packet allows a section to be considered complete even if overflow still exists
+- the packet does not require structural audit results before screenshot review
+- the packet does not require the final handoff to include both the design and the audit result
 - the font direction is generic, unintentional, or unsupported by the intended mood
 - the primary opening-zone plan would likely require an oversized headline to feel important
 - the primary opening-zone plan would likely require a 3-line or 4-line headline even though the zone should read better as a 1-line or 2-line opening
@@ -149,6 +157,10 @@ Do not emit the build-gate verdict from the packet-authoring thread.
 - Treat missing structural layout discipline as a first-order design defect, not as a later implementation task.
 - Treat missing parent-child layout structure as a first-order design defect, not as a cosmetic implementation choice.
 - Treat plans that begin from floating text and rectangles instead of frames, rows, cards, and clusters as structurally weak.
+- Treat missing structural audit rules, section completion criteria, or overflow gates as first-order design defects.
+- Treat missing routing to a dedicated structural reviewer as a first-order defect when the build is tree-fragile.
+- Treat a plan that allows screenshots before structural audit as structurally incomplete.
+- Treat any section with overflow as incomplete until the overflow is resolved.
 - Treat uncontrolled wrapping and missing line budgets as structural defects, not typography cleanup.
 - Treat preventable 3-line headings as structural defects when a healthier measure or shorter wording would keep them to 1 line or 2.
 - Treat underused width and obviously over-constrained measures as structural defects, not as polish.

@@ -9,6 +9,8 @@ description: Audit a frontend screen, landing page, dashboard, workflow view, ap
 
 Use this skill when the question is not "is the idea good?" but "will this UI hold up in reality?" Review visible stability, readability, and fit.
 
+If the main issue is tree-level structure, parent-child containment, or structural layout discipline, prefer `$frontend-structure-auditor` instead.
+
 If the problem is highly local, such as one section crop, one CTA cluster, or one note rail that may be touching or cramped, prefer `$frontend-zone-fit-critic`.
 
 If no artifact exists yet, review the proposed layout structure for likely fragility. If the plan already looks breakpoint-fragile, text-heavy, or edge-hugging, fail it before implementation.
@@ -70,6 +72,8 @@ Mark it NG if:
 - a CTA, caption, or helper line feels stranded rather than attached to a clear parent cluster
 - the screen reads as primary text and shapes placed directly on the canvas instead of stable frames, rows, cards, strips, rails, or clusters
 - objects are visually separated only by manual placement and not by a believable parent structure
+- text-containing frames look fixed-height when the content clearly wants breathing room
+- rows or cards that should expand with body copy are not behaving like flexible containers
 - the obvious fix is to widen the zone, column, or cluster area, but the layout instead keeps squeezing text vertically
 - the screen keeps large amounts of empty horizontal space while text-heavy areas wrap, collide, or crowd each other
 - side-by-side masses have no calm breathing corridor between them, so the layout reads crowded even with nominal spacing
@@ -103,6 +107,8 @@ Each issue must explain:
 - If a box looks like it needs one more line of padding or one less line of text, fail it now rather than calling it acceptable.
 - If a text-heavy zone only becomes readable after mentally separating pieces, fail it and ask for a more stable cluster.
 - If the surface looks composed from loose text and shapes instead of real parent structure, fail it before polish and ask for a structural rebuild.
+- If a fixed-height text cluster is the reason the copy looks cramped, fail it and ask for HUG or AUTO sizing before polish.
+- If the screen clearly needs a structural audit to prove overflow is gone, fail it until that audit exists.
 - If widening the available measure would clearly stabilize the zone, prefer that fix before shrinking type or forcing additional rows.
 - If a heading has fallen into a preventable third line, prefer widening, rewriting, or regrouping before accepting it as stable.
 - If the gap is technically present but still reads as tense or kissing, fail it and ask for a clearer breathing corridor.

@@ -1,4 +1,4 @@
 interface:
   display_name: "Frontend Preflight Critic"
   short_description: "Reject weak UI directions before build"
-  default_prompt: "Use $frontend-preflight-critic to independently review the current build packet or proposed UI direction in this thread before any screen is built, and return only PASS/FAIL plus remaining issues."
+  default_prompt: "Use $frontend-preflight-critic to independently review the current build packet or proposed UI direction in this thread before any screen is built, and route tree-level structural fragility to $frontend-structure-auditor."
