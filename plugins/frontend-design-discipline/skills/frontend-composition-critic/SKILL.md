@@ -11,7 +11,16 @@ Use this skill as a reviewer, not a builder. Inspect the artifact, decide whethe
 
 Prefer screenshots or direct visual artifacts over descriptions. If the work is code, inspect the rendered result when possible.
 
+If no artifact exists yet, review the proposed first-view composition and section plan. If the plan would likely collapse into a generic split-screen or card-led layout, fail it before build.
+
 ## What To Check
+
+This skill can be used in two modes:
+
+- artifact review: judge the current layout or screen
+- direction review: judge the proposed hero composition, section flow, or first-view plan before build
+
+In direction review mode, fail if the builder could still reasonably produce a generic split-screen or card-led page from the plan.
 
 Focus on these questions:
 
@@ -26,8 +35,11 @@ Mark it NG if any of these patterns appear:
 - a generic card grid as the first impression
 - side-by-side blocks that behave like comparison columns without intent
 - decorative treatment louder than the message
+- a hero headline so large that it crushes supporting copy, CTA, or the visual anchor
+- lower sections whose wrapped headings create interchangeable column blocks
 - sections that feel locally styled but globally uncomposed
 - obvious imbalance, drifting alignment, accidental emptiness, or crowded edges
+- the proposed hero does not clearly name one dominant visual plane
 
 ## Output Contract
 
@@ -59,6 +71,7 @@ When used through a subagent, explicitly instruct the subagent to read this skil
 Recommended prompt shape:
 
 - `Use $frontend-composition-critic at /absolute/path/to/SKILL.md and review this artifact for hierarchy, composition, and visual balance. Return only PASS/FAIL and remaining P1/P2/P3 issues.`
+- `Use $frontend-composition-critic at /absolute/path/to/SKILL.md and review this proposed first-view plan for hierarchy, composition, and visual balance before build. Return only PASS/FAIL and remaining P1/P2/P3 issues.`
 
 Default to `reasoning_effort: "medium"` unless the user asks for deeper judgment.
 

@@ -9,7 +9,16 @@ description: Audit a frontend screen, landing page, app UI, mock, or Figma frame
 
 Use this skill when the question is not "is the idea good?" but "will this UI hold up in reality?" Review visible stability, readability, and fit.
 
+If no artifact exists yet, review the proposed layout structure for likely fragility. If the plan already looks breakpoint-fragile, text-heavy, or edge-hugging, fail it before implementation.
+
 ## What To Check
+
+This skill can be used in two modes:
+
+- artifact review: judge the visible screen for stability
+- direction review: judge the proposed structure for likely spacing, breakpoint, and density failures before build
+
+In direction review mode, fail if the plan already reads as brittle or edge-hugging.
 
 Inspect these failure modes:
 
@@ -32,7 +41,10 @@ Mark it NG if:
 - content technically fits but still reads as broken
 - bounded areas such as cards, mockups, and rails look one line away from failure
 - contrast is too weak for routine reading
+- headline scale is so aggressive that the hero balance depends on luck
+- lower-section text blocks rely on narrow columns and overwrapping to fit
 - the layout depends on luck rather than resilient spacing
+- the proposed structure would obviously become fragile at common breakpoints
 
 ## Output Contract
 
@@ -62,6 +74,7 @@ When used through a subagent, explicitly instruct the subagent to read this skil
 Recommended prompt shape:
 
 - `Use $frontend-ui-auditor at /absolute/path/to/SKILL.md and review this artifact for clipping, spacing, contrast, and UI stability. Return only PASS/FAIL and remaining P1/P2/P3 issues.`
+- `Use $frontend-ui-auditor at /absolute/path/to/SKILL.md and review this proposed layout structure for clipping risk, spacing fragility, breakpoint risk, and UI stability before build. Return only PASS/FAIL and remaining P1/P2/P3 issues.`
 
 Default to `reasoning_effort: "medium"` unless the user asks for deeper judgment.
 

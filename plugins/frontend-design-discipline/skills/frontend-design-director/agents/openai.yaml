@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontend Design Director"
+  short_description: "Lock the visual bar before building"
+  default_prompt: "Use $frontend-design-director to turn this brief into a strict design-direction packet before any Figma or frontend build begins."

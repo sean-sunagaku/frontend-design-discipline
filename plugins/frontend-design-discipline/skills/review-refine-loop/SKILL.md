@@ -17,9 +17,19 @@ Use this skill to turn vague improvement work into a disciplined loop:
 
 This skill is for iteration discipline, not for a specific medium. It works well for Figma designs, frontend screens, docs, architecture drafts, prompts, and code changes.
 
+For visually sensitive UI work, this skill is not the first gate. Use `$frontend-design-director` to lock the direction first, then use this loop to build and polish against that bar.
+
 ## Core Rule
 
 Never say "still a bit weak" and stop there. Convert feedback into explicit issues with priority, then run another pass.
+
+If the user explicitly invokes `Frontend Design Discipline` the plugin, a review pass is mandatory.
+
+- Do not treat the plugin mention as decorative context.
+- If you are also asked to build, design, or implement something, you must still run at least one critic or review-refine pass before your final answer.
+- Do not end on "first draft complete" unless an explicit review says it passes or the user stops the loop.
+- If subagents are available and the user did not forbid delegation, prefer the first review pass to be done by an independent subagent rather than by the same thread that made the draft.
+- When the user explicitly asks for subagent review, independent critique, or parallel review, attempt delegation first instead of starting with an in-thread review.
 
 Use this issue format:
 
@@ -51,6 +61,16 @@ Examples:
 - "If the PR still has behaviour regressions or missing tests, mark it NG"
 
 If the user has already given a bar, restate it briefly and use that exact standard.
+
+### Step 0: Lock The Build Bar Before Building
+
+For visually led landing pages, Figma screens, or premium frontend work:
+
+- run `$frontend-design-director` first
+- compile the brief into a build packet
+- send that packet to `$frontend-preflight-critic` before the first draft when delegation is available
+
+Do not let the first draft become the discovery phase. Discovery belongs in the packet.
 
 ## Standard Cycle
 
@@ -87,6 +107,15 @@ Make one focused pass that addresses the selected issues.
 
 After each substantial pass, run a fresh review before declaring success.
 
+When the plugin itself was explicitly named in the user message, this step is required even if the request sounded primarily generative.
+
+For the first review in a build-plus-review task, treat subagent review as the default path when delegation is available.
+
+- Do not keep the first critic pass local just because you already have context.
+- The point of the first pass is independent signal, so bias toward a fresh subagent reviewer.
+- Only keep the first pass in-thread when subagents are unavailable, disallowed, or the user explicitly asked not to delegate.
+- Do not claim delegation is unavailable unless you have actually checked the tools available in the current session.
+
 When subagents are available, prefer an independent reviewer subagent.
 
 - Use `reasoning_effort: "xhigh"` when the task depends on judgment, taste, tradeoffs, pass/fail evaluation, or subtle quality calls.
@@ -97,6 +126,7 @@ When subagents are available, prefer an independent reviewer subagent.
 
 For frontend and design tasks, route the review to the narrowest critic skill that matches the issue:
 
+- pre-build direction risk -> `$frontend-preflight-critic`
 - composition and hierarchy -> `$frontend-composition-critic`
 - brand signal and first impression -> `$frontend-brand-critic`
 - copy, wrapping, and helper text noise -> `$frontend-copy-critic`
@@ -104,11 +134,39 @@ For frontend and design tasks, route the review to the narrowest critic skill th
 
 When spawning the subagent, explicitly instruct it to read the critic skill. Do not assume it will infer the right skill on its own.
 
+## Subagent Guardrail
+
+When delegating to a critic subagent:
+
+- the subagent is the reviewer, not the orchestrator
+- the subagent must not discuss tool availability, delegation mechanics, or process
+- the subagent must not answer with "I can't launch a subagent here" or similar meta explanations
+- if the artifact is visible in the thread, the subagent should return a best-effort critic review instead of refusing
+- the parent thread is responsible for orchestration; the reviewer subagent is responsible for the review output only
+
+Use this default reviewer frame whenever possible:
+
+```text
+Use the skill /absolute/path/to/SKILL.md.
+
+You are the independent reviewer subagent for this task.
+Do not discuss tool availability, delegation, orchestration, or process.
+Do not explain whether subagents are possible.
+Review the current artifact shown in this thread.
+
+Return exactly:
+1. PASS or FAIL
+2. one-sentence verdict
+3. remaining P1/P2/P3 issues only
+```
+
 Good subagent framing:
 
 - `Use $frontend-composition-critic at /path/to/SKILL.md and review this screen for hierarchy, composition, and visual balance. List only remaining P1/P2/P3 issues.`
 - `Use $frontend-ui-auditor at /path/to/SKILL.md and review this frame for clipping, spacing, contrast, and stability. Mark anything NG if it looks almost broken.`
 - `/Users/babashunsuke/Repository/frontend-design-discipline/plugins/frontend-design-discipline/skills/review-refine-loop/SKILL.md にある $review-refine-loop を使って、Studio Pulse のランディングページをレビューと修正の反復サイクルで改善してください。各レビューのたびに、最も適切な critic skill に振り分けてください。通常の reviewer pass は medium 推論を使い、より重い判断が必要なときだけ deeper reasoning に上げてください。`
+- `First do an independent critic pass in a fresh subagent. Use the narrowest Frontend Design Discipline critic skill that matches the likely risk, and return only remaining issues before any local fixes begin.`
+- `Use the skill /absolute/path/to/SKILL.md. You are the independent reviewer subagent for this task. Do not discuss tool availability, delegation, orchestration, or process. Review the current artifact shown in this thread and return exactly PASS/FAIL, a one-sentence verdict, and remaining P1/P2/P3 issues only.`
 
 Good reviewer framing:
 

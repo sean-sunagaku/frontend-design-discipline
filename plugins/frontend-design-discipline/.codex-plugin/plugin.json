@@ -1,7 +1,7 @@
 {
   "name": "frontend-design-discipline",
   "version": "0.1.0",
-  "description": "Focused frontend review skills for composition, brand, copy, UI stability, and iterative refinement.",
+  "description": "Frontend design direction and review skills for locking a high visual bar before build, then validating composition, brand, copy, and UI stability.",
   "author": {
     "name": "babashunsuke",
     "email": "sunagaku.dx@gmail.com",
@@ -20,8 +20,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Frontend Design Discipline",
-    "shortDescription": "Focused reviewer skills for frontend and UI quality",
-    "longDescription": "A Codex plugin that bundles focused reviewer skills for frontend composition, brand signal, copy quality, UI stability, and iterative review-refine loops.",
+    "shortDescription": "Lock the visual bar before build, then review hard",
+    "longDescription": "A Codex plugin for high-bar frontend and Figma work. It first locks a strict design-direction packet, then uses preflight and critic reviews to prevent generic UI, weak art direction, and late-stage rescue work.",
     "developerName": "babashunsuke",
     "category": "Productivity",
     "capabilities": [
@@ -32,9 +32,10 @@
     "privacyPolicyURL": "https://github.com/sean-sunagaku/frontend-design-discipline",
     "termsOfServiceURL": "https://github.com/sean-sunagaku/frontend-design-discipline",
     "defaultPrompt": [
-      "Review this UI for composition, hierarchy, and visual balance.",
-      "Audit whether this screen communicates the intended brand clearly.",
-      "Run a review-refine loop on this Figma frame until it passes."
+      "Use $frontend-design-director first to turn this brief into a strict build packet before any Figma or frontend work begins.",
+      "Use $frontend-preflight-critic as the first independent review on the proposed direction when delegation is available.",
+      "Use Frontend Design Discipline as a reviewer, not just a builder. Keep reviewer outputs free of tool-availability or process chatter.",
+      "After the build exists, run $review-refine-loop with the narrowest critic skill until the artifact passes the stated bar."
     ],
     "brandColor": "#E5A534"
   }

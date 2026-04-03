@@ -1,4 +1,4 @@
 interface:
   display_name: "Frontend Copy Critic"
   short_description: "Audit copy, wrapping, and message clarity"
-  default_prompt: "Use $frontend-copy-critic to review this UI copy for clarity, wrapping, and message discipline."
+  default_prompt: "Use $frontend-copy-critic to review this UI copy or planned headline/CTA set for clarity, wrapping, and message discipline."
