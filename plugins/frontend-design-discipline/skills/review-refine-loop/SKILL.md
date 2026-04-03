@@ -89,6 +89,7 @@ The parent thread does not need to restate the full reviewer script each time. A
 Do not let the first draft become the discovery phase. Discovery belongs in the packet.
 The packet should also lock spacing budget, text-cluster structure, and a review capture plan so overlap and text-fit problems are not discovered only at the final screenshot.
 It should also lock width and measure strategy so zones that need more horizontal room are widened intentionally instead of becoming vertically cramped later.
+It should explicitly reserve breathing corridors between side-by-side masses so "not overlapping" is not mistaken for "visually calm."
 
 ## Standard Cycle
 
@@ -103,6 +104,7 @@ Inspect the artifact directly before changing anything.
   - one screenshot per major zone
 - additional screenshots for text-heavy or bounded clusters
 - when a zone feels cramped, compare the crop against the unused horizontal space around it and ask whether widening is the real fix
+- when a side-by-side layout feels tense, inspect whether the gap is a real breathing corridor or only nominal spacing
 - Typical cluster crops include:
   - hero/opening text cluster
   - support copy plus nearby proof object
@@ -114,6 +116,7 @@ Inspect the artifact directly before changing anything.
 Do not start revising from memory.
 Do not sign off on visual stability from a full-page screenshot alone when a tighter crop would reveal overlap, edge touch, or stranded text.
 Do not default to shrinking type, cutting copy, or stacking more rows if the tighter crop shows the zone simply needs more width.
+Do not call a zone safe just because objects technically do not overlap; if they read as kissing or visually colliding, treat that as a real blocker.
 
 ### Step 2: Produce a bounded issue list
 
@@ -163,9 +166,11 @@ For frontend and design tasks, route the review to the narrowest critic skill th
 - composition and hierarchy -> `$frontend-composition-critic`
 - brand signal and first impression -> `$frontend-brand-critic`
 - copy, wrapping, and helper text noise -> `$frontend-copy-critic`
+- local overlap, breathing room, and zone text fit -> `$frontend-zone-fit-critic`
 - clipping, spacing, contrast, and UI stability -> `$frontend-ui-auditor`
 
-After the first real draft of a text-heavy or bounded-copy surface, at least one `$frontend-ui-auditor` pass is mandatory before final signoff.
+After the first real draft of a text-heavy or bounded-copy surface, at least one `$frontend-zone-fit-critic` or `$frontend-ui-auditor` pass is mandatory before final signoff.
+Prefer `$frontend-zone-fit-critic` when the risk is local crop safety rather than whole-surface implementation stability.
 Use zone and cluster screenshots for that pass rather than a full-page screenshot alone.
 
 When spawning the subagent, explicitly instruct it to read the critic skill. Do not assume it will infer the right skill on its own.

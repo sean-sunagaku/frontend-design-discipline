@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontend Zone Fit Critic"
+  short_description: "Catch overlap, cramped spacing, and weak local fit"
+  default_prompt: "Use $frontend-zone-fit-critic to independently review the current section, zone, or cluster crop in this thread for overlap, breathing room, local text fit, and width allocation, and return only PASS/FAIL plus remaining issues."
