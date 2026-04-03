@@ -35,6 +35,7 @@ Inspect these failure modes:
 7. underused width causing avoidable wrapping or crowding
 8. fragile local layout that would likely break after one copy change
 9. odd manual line breaks inside the local crop
+10. preventable third-line headings inside the local crop
 
 Mark it NG if:
 
@@ -43,6 +44,7 @@ Mark it NG if:
 - body copy, caption, and action feel jammed together instead of reading as one calm cluster
 - a bounded area only works because the text happens to break at one exact line
 - a heading, label, or button in the crop appears manually broken at an unnatural point
+- a local heading that should comfortably read in 1 line, or at most 2, spills into a third line because width was under-allocated
 - text sits too close to a frame edge, divider, or nearby object
 - the obvious fix is to widen the local zone, but the layout instead keeps squeezing text vertically
 - the crop shows unused horizontal room while the text wraps into tense multi-line stacks
@@ -79,6 +81,7 @@ Each issue must state:
 - Be stricter than a normal visual review.
 - Treat "almost touching" as a real issue.
 - Prefer widening and re-spacing before shrinking type.
+- Prefer widening, regrouping, or shortening before accepting a third line in a heading.
 - Prefer healthier measure and grouping before inserting manual line breaks.
 - If a cluster only works because the copy is short today, fail it.
 - If a side-by-side layout has no calm quiet band, fail it even without literal overlap.

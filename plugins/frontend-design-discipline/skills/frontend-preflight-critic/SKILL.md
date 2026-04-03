@@ -93,8 +93,10 @@ Mark it NG if:
 - primary reading content has no declared parent structure
 - the font direction is generic, unintentional, or unsupported by the intended mood
 - the primary opening-zone plan would likely require an oversized headline to feel important
+- the primary opening-zone plan would likely require a 3-line or 4-line headline even though the zone should read better as a 1-line or 2-line opening
 - the headline would overpower the brand mark, supporting copy, or CTA cluster
 - the secondary zones have no explicit line budget and will likely collapse into awkward wrapped columns
+- the direction treats multi-line headings as normal even though widening, shortening, or rewriting would likely keep them to 1 line or 2
 - the packet does not say which zones should widen and which should stay narrow
 - a text-heavy or working zone is over-constrained to a narrow measure even though the surface clearly wants more horizontal room
 - the packet does not say which text-heavy areas must be built as one cluster rather than as separate text placements
@@ -143,6 +145,7 @@ Do not emit the build-gate verdict from the packet-authoring thread.
 - Treat weak font rationale and runaway opening-zone scale as first-order design defects, not polish.
 - Treat missing structural layout discipline as a first-order design defect, not as a later implementation task.
 - Treat uncontrolled wrapping and missing line budgets as structural defects, not typography cleanup.
+- Treat preventable 3-line headings as structural defects when a healthier measure or shorter wording would keep them to 1 line or 2.
 - Treat underused width and obviously over-constrained measures as structural defects, not as polish.
 - Treat text-fit risk in secondary zones as a structural defect, not as last-minute cleanup in Figma.
 - Treat missing text-cluster structure and missing section-level inspection plans as structural defects, not optional QA.
