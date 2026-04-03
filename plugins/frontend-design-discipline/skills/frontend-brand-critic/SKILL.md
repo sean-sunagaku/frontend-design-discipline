@@ -9,7 +9,16 @@ description: Review a frontend screen, landing page, app UI, mock, or Figma fram
 
 Use this skill to judge whether the work communicates the intended brand in one glance. Treat weak brand presence as a product problem, not as optional polish.
 
+If no artifact exists yet, review the proposed direction packet or first-view plan instead of punting. A weak brand plan should be rejected before build, not excused until later.
+
 ## What To Check
+
+This skill can be used in two modes:
+
+- artifact review: judge the current pixels or screen
+- direction review: judge the proposed brief, packet, or first-view plan before build
+
+In direction review mode, fail early if the proposed visual anchor is too weak to carry the intended identity.
 
 Review these dimensions:
 
@@ -24,8 +33,10 @@ Mark it NG if:
 - the brand disappears behind generic UI patterns
 - the visual tone contradicts the stated intent
 - imagery, typography, and chrome feel like unrelated systems
+- the font choice feels like a safe default rather than part of the identity
 - the page could belong to almost any product
 - supporting elements dilute the intended first impression
+- the proposed direction does not name a concrete visual anchor strong enough to carry the brand
 
 ## Output Contract
 
@@ -47,6 +58,7 @@ Each issue should say:
 - Be strict about genericity.
 - If the user gave a specific brand bar such as "quiet luxury" or "observatory-like", judge against that exact bar.
 - If the bar is missing, infer the likely intended impression from the artifact and call out contradictions.
+- In direction review mode, treat vague mood language without a concrete visual plan as a real defect.
 
 ## Subagent Use
 
@@ -55,6 +67,7 @@ When used through a subagent, explicitly instruct the subagent to read this skil
 Recommended prompt shape:
 
 - `Use $frontend-brand-critic at /absolute/path/to/SKILL.md and review whether this artifact communicates the intended brand and first impression. Return only PASS/FAIL and remaining P1/P2/P3 issues.`
+- `Use $frontend-brand-critic at /absolute/path/to/SKILL.md and review whether this proposed direction packet would produce a distinct brand impression before anything is built. Return only PASS/FAIL and remaining P1/P2/P3 issues.`
 
 Default to `reasoning_effort: "medium"` unless the user asks for deeper judgment.
 

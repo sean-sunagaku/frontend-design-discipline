@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontend Preflight Critic"
+  short_description: "Reject weak UI directions before build"
+  default_prompt: "Use $frontend-preflight-critic to review this proposed UI direction before any screen is built, and return only PASS/FAIL plus remaining issues."

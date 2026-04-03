@@ -1,4 +1,4 @@
 interface:
   display_name: "Frontend Composition Critic"
   short_description: "Audit hierarchy, balance, and composition"
-  default_prompt: "Use $frontend-composition-critic to review this UI for hierarchy, composition, and visual balance."
+  default_prompt: "Use $frontend-composition-critic to review this UI or proposed first-view plan for hierarchy, composition, and visual balance."

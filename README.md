@@ -1,7 +1,7 @@
 # frontend-design-discipline
 
-Codex plugin for focused frontend review skills around composition, brand signal,
-copy quality, UI stability, and iterative review-refine loops.
+Codex plugin for locking a strong design direction before build, then reviewing
+composition, brand signal, copy quality, UI stability, and refinement loops.
 
 ## What This Repo Is
 
@@ -91,6 +91,8 @@ plugin 本体は `plugins/frontend-design-discipline/` にあります。
 
 ## Included Skills
 
+- `frontend-design-director`
+- `frontend-preflight-critic`
 - `frontend-brand-critic`
 - `frontend-composition-critic`
 - `frontend-copy-critic`
@@ -99,8 +101,19 @@ plugin 本体は `plugins/frontend-design-discipline/` にあります。
 
 ## Invocation Contract
 
-この plugin は「作るための装飾」ではなく、「レビュー工程を強制するための plugin」として使うのが基本です。
+この plugin は「まず美意識を固定し、そのあと厳しく批評する」ための plugin です。
 
+レビューできるタイミングは build 後だけではありません。
+
+- brief の段階
+- build packet の段階
+- wireframe / section plan の段階
+- 実際の artifact の段階
+
+どの段階でも critic を走らせられるようにして、弱い方向を早く落とすのが前提です。
+
+- まず `frontend-design-director` で build packet を作る
+- build 前に `frontend-preflight-critic` で方向そのものを落とす
 - ユーザーが `Frontend Design Discipline` を明示したら、少なくとも 1 回は critic skill または `review-refine-loop` を通す
 - subagent が使える環境なら、最初の critic pass は独立した subagent reviewer を優先する
 - ユーザーが独立レビューや subagent review を明示したら、まず delegation を試みてから fallback を選ぶ
@@ -108,14 +121,14 @@ plugin 本体は `plugins/frontend-design-discipline/` にあります。
 - final answer では、通した critic と残課題、もしくは pass 判定を明示する
 - reviewer subagent はメタ説明に流れず、PASS/FAIL と issue だけを返す
 
-意図としては、「plugin が見えていたのにレビューを飛ばした」「独立レビューに出さず自己診断だけで終えた」「reviewer subagent がメタ会話に逃げた」を防ぐことにあります。
+意図としては、「generic な UI を作ってから救済する」流れを避け、方向の弱さを build 前に落とすことにあります。
 
 ## Repository Structure
 
 - `.agents/plugins/marketplace.json`: repo marketplace entry
 - `plugins/frontend-design-discipline/.codex-plugin/plugin.json`: plugin manifest
 - `plugins/frontend-design-discipline/skills/`: bundled skills
-- `plugins/frontend-design-discipline/sample/`: sample briefs and review criteria
+- `plugins/frontend-design-discipline/sample/`: sample briefs, build packets, and review criteria
 
 ## Notes
 

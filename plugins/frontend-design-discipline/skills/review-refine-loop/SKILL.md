@@ -17,6 +17,8 @@ Use this skill to turn vague improvement work into a disciplined loop:
 
 This skill is for iteration discipline, not for a specific medium. It works well for Figma designs, frontend screens, docs, architecture drafts, prompts, and code changes.
 
+For visually sensitive UI work, this skill is not the first gate. Use `$frontend-design-director` to lock the direction first, then use this loop to build and polish against that bar.
+
 ## Core Rule
 
 Never say "still a bit weak" and stop there. Convert feedback into explicit issues with priority, then run another pass.
@@ -59,6 +61,16 @@ Examples:
 - "If the PR still has behaviour regressions or missing tests, mark it NG"
 
 If the user has already given a bar, restate it briefly and use that exact standard.
+
+### Step 0: Lock The Build Bar Before Building
+
+For visually led landing pages, Figma screens, or premium frontend work:
+
+- run `$frontend-design-director` first
+- compile the brief into a build packet
+- send that packet to `$frontend-preflight-critic` before the first draft when delegation is available
+
+Do not let the first draft become the discovery phase. Discovery belongs in the packet.
 
 ## Standard Cycle
 
@@ -114,6 +126,7 @@ When subagents are available, prefer an independent reviewer subagent.
 
 For frontend and design tasks, route the review to the narrowest critic skill that matches the issue:
 
+- pre-build direction risk -> `$frontend-preflight-critic`
 - composition and hierarchy -> `$frontend-composition-critic`
 - brand signal and first impression -> `$frontend-brand-critic`
 - copy, wrapping, and helper text noise -> `$frontend-copy-critic`
