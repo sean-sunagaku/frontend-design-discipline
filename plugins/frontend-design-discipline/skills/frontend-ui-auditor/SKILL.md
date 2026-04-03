@@ -20,6 +20,21 @@ This skill can be used in two modes:
 
 In direction review mode, fail if the plan already reads as brittle or edge-hugging.
 
+For artifact review, do not sign off from one full-page screenshot alone when the surface contains multiple zones or text-heavy areas.
+
+Default inspection order:
+
+1. full artifact screenshot for overall stability
+2. one screenshot per major zone
+3. extra screenshots for text-heavy or bounded clusters
+
+Examples of cluster-level crops:
+
+- hero text column
+- support copy versus nearby proof object
+- detail copy cluster beside a rail or thread
+- final CTA cluster
+
 Inspect these failure modes:
 
 1. clipped, cramped, washed-out, or low-contrast text
@@ -27,7 +42,9 @@ Inspect these failure modes:
 3. spacing that feels accidental or fragile
 4. elements too close to edges, dividers, or neighboring blocks
 5. text fit inside bounded areas such as cards, rails, panels, or buttons
-6. likely breakpoint failures at common desktop and mobile widths
+6. text clusters that are visually detached, stranded, or assembled with fragile spacing
+7. underused horizontal space that creates avoidable wrapping, crowding, or overlap
+8. likely breakpoint failures at common desktop and mobile widths
 
 Default widths to reason through:
 
@@ -40,9 +57,14 @@ Mark it NG if:
 
 - text looks cut off or almost cut off
 - content technically fits but still reads as broken
+- a full-page view looks acceptable but a zone or cluster crop reveals overlap, collision, or cramped spacing
 - bounded areas such as cards, mockups, and rails look one line away from failure
 - text appears to slip outside a frame, box, pill, or button, even slightly
 - secondary-zone text only fits because the box is overfilled and visually tense
+- headings, body copy, captions, and actions do not read as one stable cluster
+- a CTA, caption, or helper line feels stranded rather than attached to a clear parent cluster
+- the obvious fix is to widen the zone, column, or cluster area, but the layout instead keeps squeezing text vertically
+- the screen keeps large amounts of empty horizontal space while text-heavy areas wrap, collide, or crowd each other
 - contrast is too weak for routine reading
 - headline scale is so aggressive that the opening-zone balance depends on luck
 - secondary-zone text blocks rely on narrow columns and overwrapping to fit
@@ -69,7 +91,10 @@ Each issue must explain:
 - Treat almost-failing layouts as failures.
 - Separate readability issues from brand or composition issues unless they overlap directly.
 - When screenshots are available, trust the pixels first.
+- When both full-page and section crops exist, trust the tighter crop for overlap and spacing calls.
 - If a box looks like it needs one more line of padding or one less line of text, fail it now rather than calling it acceptable.
+- If a text-heavy zone only becomes readable after mentally separating pieces, fail it and ask for a more stable cluster.
+- If widening the available measure would clearly stabilize the zone, prefer that fix before shrinking type or forcing additional rows.
 
 ## Subagent Use
 
@@ -78,6 +103,7 @@ When used through a subagent, explicitly instruct the subagent to read this skil
 Recommended prompt shape:
 
 - `Use $frontend-ui-auditor at /absolute/path/to/SKILL.md and review this artifact for clipping, spacing, contrast, and UI stability. Return only PASS/FAIL and remaining P1/P2/P3 issues.`
+- `Use $frontend-ui-auditor at /absolute/path/to/SKILL.md and review this artifact zone by zone for clipping, overlap, spacing, text fit, and UI stability. Return only PASS/FAIL and remaining P1/P2/P3 issues.`
 - `Use $frontend-ui-auditor at /absolute/path/to/SKILL.md and review this proposed layout structure for clipping risk, spacing fragility, breakpoint risk, and UI stability before build. Return only PASS/FAIL and remaining P1/P2/P3 issues.`
 
 Default to `reasoning_effort: "medium"` unless the user asks for deeper judgment.
@@ -90,6 +116,7 @@ Sample prompt:
 
 - `P1 Supporting text is not clipped, but it sits so close to the edge that it reads as broken. Increase container padding or shorten the copy.`
 - `P1 The right rail is readable on desktop but too fragile for narrower widths. Reduce copy load or reflow the structure before implementation.`
+- `P1 The final CTA looks acceptable in the full-page view, but the section crop shows the body and action cluster colliding with nearby elements. Rebuild the closing cluster as one stacked unit and reserve more clearance.`
 - `P2 Contrast in the idle state is too low for routine scanning. Raise value contrast without changing the whole palette.`
 
 ## Not Your Job

@@ -259,7 +259,92 @@ Reject plans where:
 - the layout depends on shrinking text too late in Figma to make it fit
 - secondary zones inherit the opening zone's drama as oversized text instead of settled rhythm
 
-### 11. Surface/Imagery Strategy
+### 11. Spacing Budget
+
+For every major zone, lock the minimum spacing relationships between text clusters before building.
+
+At minimum, define:
+
+- heading to body gap
+- body to primary action gap
+- text cluster to nearby object clearance
+- safe padding inside bounded copy areas
+
+Prefer structural spacing over manual cleanup.
+
+Reject plans where:
+
+- the heading, body, caption, and action are expected to be placed one by one by coordinates
+- captions or helper lines are expected to live in leftover space
+- the zone only works if text is nudged late in Figma
+- the closest visual object can drift into the text area with no reserved clearance
+
+If a zone contains a closing cluster, note, proof item, or CTA stack, define it as one cluster with one spacing system rather than as separate floating text layers.
+
+### 12. Width and Measure Strategy
+
+For every major zone, decide whether it should stay narrow, widen, or span the surface more aggressively.
+
+State:
+
+- which zones are intentionally narrow
+- which zones should expand horizontally
+- the target text measure for long-form reading areas
+- the minimum usable width for working, proof, or visual zones
+
+Reject plans where:
+
+- secondary or working zones inherit the opening text measure without reason
+- a zone is forced into 3-line or 4-line wrapping simply because it was never allowed to widen
+- the page leaves obvious unused horizontal space while text-heavy areas become vertically cramped
+- proof objects, rails, or cards collide with copy because the layout under-allocates width
+
+If widening a zone would clearly solve wrapping, overlap, or visual tension, choose widening first instead of shrinking text or stacking more rows.
+
+### 13. Text Cluster Structure
+
+Call out which text-heavy areas must be built as structured clusters rather than loose text placements.
+
+Examples:
+
+- closing CTA cluster
+- support copy cluster
+- detail copy cluster
+- rail note cluster
+- inspector note cluster
+
+Default bar:
+
+- prefer auto-layout or equivalent stack structure for text groups
+- keep captions, helper text, and actions attached to their parent copy cluster
+- reserve space for nearby cards, notes, rails, or screenshots instead of hoping text will miss them
+
+Reject plans where:
+
+- a text-heavy zone depends on absolute x/y nudging for routine reading content
+- a CTA, caption, or helper line looks likely to become stranded
+- the design assumes overlap will be caught only during final polish
+
+### 14. Review Capture Plan
+
+Before build, define how the artifact will be checked after the first draft.
+
+Default bar:
+
+- take one full-artifact screenshot for overall composition
+- take one screenshot per major zone
+- take additional screenshots for text-heavy or bounded clusters
+
+Examples of cluster-level crops:
+
+- hero text column
+- support copy plus nearby proof object
+- detail copy cluster versus decision thread
+- final CTA closing cluster
+
+Do not rely on one full-page screenshot for signoff. If overlap, clipping, edge touch, or cramped spacing would only be visible in a section crop, plan to review that crop explicitly.
+
+### 15. Surface/Imagery Strategy
 
 State what kind of visual anchor will carry the artifact.
 
@@ -276,7 +361,7 @@ If the opening zone would still work with no image or no strong visual plane, th
 
 For app UI, this can be the main workspace material, dominant module, or focused object rather than an actual image.
 
-### 12. Primary Action Stance
+### 16. Primary Action Stance
 
 Define:
 
@@ -286,7 +371,7 @@ Define:
 
 Reject vague action language that does not conclude the flow or clarify the next step.
 
-### 13. Pass Bar
+### 17. Pass Bar
 
 Write 5 to 8 bullets describing what must be true for the work to pass.
 
@@ -299,8 +384,9 @@ Good:
 - `Every secondary zone must have a dominant subject, not a row of similar blocks.`
 - `The working zone must reveal what the product lets you do, not just what it says.`
 - `The commit zone must feel deliberate, not like a stray button.`
+- `No text cluster may overlap, visually collide with, or nearly touch a nearby object in section-level review.`
 
-### 14. Build Instruction
+### 18. Build Instruction
 
 End with a short directive paragraph that a builder can execute without reinterpretation.
 

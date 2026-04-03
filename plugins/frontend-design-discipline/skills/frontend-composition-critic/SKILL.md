@@ -29,6 +29,7 @@ Focus on these questions:
 3. Does the layout read as composition rather than a row of interchangeable cards?
 4. Does visual weight feel balanced left-to-right and top-to-bottom?
 5. Does the primary action sit in a clear hierarchy?
+6. Is the available width being used intentionally, or is the surface unnecessarily cramped?
 
 Mark it NG if any of these patterns appear:
 
@@ -38,6 +39,8 @@ Mark it NG if any of these patterns appear:
 - an opening headline so large that it crushes supporting copy, CTA, or the visual anchor
 - secondary zones whose wrapped headings create interchangeable column blocks
 - secondary zones whose boxed items become cramped text containers rather than calm compositional units
+- a text-heavy or working zone stays trapped in a narrow center measure even though widening it would restore calm
+- the layout leaves obvious unused horizontal space while copy, notes, or proof objects stack vertically from lack of width
 - zone titles or action panels that visually break their intended frame because the type block is too tall or too wide
 - zones that feel locally styled but globally uncomposed
 - obvious imbalance, drifting alignment, accidental emptiness, or crowded edges
@@ -85,6 +88,7 @@ Sample prompt:
 
 - `P1 Header block dominates the screen more than the product message, so the first glance lands on chrome instead of the subject. Reduce header scale and reclaim space for the opening zone.`
 - `P1 Feature area reads like three interchangeable cards rather than a directional story. Recompose it into a staggered or editorial layout.`
+- `P2 The section is not failing because the copy is too long; it is failing because the zone is held too narrow. Reallocate more horizontal width before shrinking type or adding more rows.`
 - `P2 The primary action sits in the page but does not conclude the hierarchy. Increase positional clarity or reduce nearby competing elements.`
 
 ## Not Your Job
