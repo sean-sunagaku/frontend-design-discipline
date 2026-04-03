@@ -59,9 +59,11 @@ For Figma, HTML, and frontend builds, default to real layout structure first:
 - auto layout, stacks, grids, and nested frames in Figma
 - semantic sections, lists, flex, and grid in HTML/CSS
 - explicit parent-child hierarchy for every major zone and text cluster
+- every meaningful element should belong to a real parent frame, wrapper, row, column, card, list item, strip, note group, or text cluster rather than floating alone
 
 Do not treat loose absolute positioning as the default build method.
 Absolute placement is acceptable only for decorative layers, controlled overlays, or intentionally freeform hero art where the primary reading content still lives inside a stable structure.
+For primary content, default to section -> group frame -> row or column -> card, note group, or text cluster.
 
 Although many examples below use landing-page language, the same discipline applies to any high-visibility surface:
 
@@ -186,6 +188,9 @@ For Figma, default to:
 - nested frames that reflect zone -> cluster -> element hierarchy
 - auto layout for text clusters, CTA groups, note stacks, proof items, and repeated patterns
 - absolute positioning only for decoration, annotation accents, or deliberate hero artwork
+- section -> group frame -> row or column frame -> text cluster is the default build order
+- a board or surface should still be decomposed into structured children such as timeline rows, cards, strips, rails, notes, and copy clusters
+- text should not be scattered as standalone layers when it could belong to one card, row, note group, strip, or heading cluster
 
 For HTML/frontend, default to:
 
@@ -193,6 +198,8 @@ For HTML/frontend, default to:
 - flex or grid for primary layout
 - stable wrappers for text clusters and action groups
 - absolute positioning only for decorative or controlled overlay elements
+- rows, columns, cards, strips, lists, and annotation groups should be explicit wrappers rather than visually implied spacing
+- text nodes should belong to semantic clusters instead of being sprinkled directly into the page root
 
 Reject plans where:
 
@@ -201,8 +208,13 @@ Reject plans where:
 - text layers are expected to float independently in open space
 - a CTA, caption, or helper line has no structural cluster
 - a side-by-side zone has no declared parent layout and no protected corridor
+- the likely Figma build would start by dropping rectangles and text on the canvas before section frames exist
+- a board-like zone is described as a surface but not decomposed into rows, cards, strips, rails, notes, or clusters
+- multiple primary elements in the same zone would need to overlap because no structural rows, cards, or groups were defined
+- the likely HTML/frontend build would rely on free-positioned blocks instead of a stable section / row / cluster hierarchy
 
 If the layout would become more stable by adding one more structural parent frame or wrapper, do that early instead of fixing drift later.
+If two or more elements can be expressed as one stable cluster, card, row, or note group, prefer that structure over separate placements.
 
 ### 8. Typography and Color Discipline
 

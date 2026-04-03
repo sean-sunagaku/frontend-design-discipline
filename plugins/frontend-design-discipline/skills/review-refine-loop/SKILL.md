@@ -88,6 +88,7 @@ The parent thread does not need to restate the full reviewer script each time. A
 
 Do not let the first draft become the discovery phase. Discovery belongs in the packet.
 The packet should also lock structural layout discipline so the build uses real frames, wrappers, stacks, grids, or semantic containers rather than loose absolute placement.
+It should define the parent structure for each zone so the build starts from section frames, rows, columns, cards, strips, rails, and text clusters rather than free-placed text and rectangles.
 The packet should also lock spacing budget, text-cluster structure, and a review capture plan so overlap and text-fit problems are not discovered only at the final screenshot.
 It should also lock width and measure strategy so zones that need more horizontal room are widened intentionally instead of becoming vertically cramped later.
 It should explicitly reserve breathing corridors between side-by-side masses so "not overlapping" is not mistaken for "visually calm."
@@ -140,6 +141,7 @@ Make one focused pass that addresses the selected issues.
 - If one issue makes another irrelevant, collapse the list.
 - If the layout is still built from loose absolute placements, stabilize the structure before polishing typography.
 - Prefer adding the correct parent wrapper, stack, auto layout, grid, or semantic container before tweaking local coordinates.
+- If the surface still looks like text and shapes were placed directly on the canvas, regroup it into section frames, rows, cards, strips, rails, or clusters before surface polish.
 
 ### Step 4: Run an independent review
 
