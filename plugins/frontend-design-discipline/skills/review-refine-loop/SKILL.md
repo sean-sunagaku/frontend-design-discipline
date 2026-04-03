@@ -87,6 +87,8 @@ For visually led landing pages, app homes, dashboards, workflow views, detail vi
 The parent thread does not need to restate the full reviewer script each time. A short handoff to `$frontend-preflight-critic` should be enough because the default reviewer assumptions live in that skill.
 
 Do not let the first draft become the discovery phase. Discovery belongs in the packet.
+The packet should also lock spacing budget, text-cluster structure, and a review capture plan so overlap and text-fit problems are not discovered only at the final screenshot.
+It should also lock width and measure strategy so zones that need more horizontal room are widened intentionally instead of becoming vertically cramped later.
 
 ## Standard Cycle
 
@@ -95,10 +97,23 @@ Do not let the first draft become the discovery phase. Discovery belongs in the 
 Inspect the artifact directly before changing anything.
 
 - For Figma or visual work, get screenshots first.
+- Do not rely on one full-page screenshot if the artifact has multiple zones or text-heavy sections.
+- Capture:
+  - one full-artifact screenshot
+  - one screenshot per major zone
+- additional screenshots for text-heavy or bounded clusters
+- when a zone feels cramped, compare the crop against the unused horizontal space around it and ask whether widening is the real fix
+- Typical cluster crops include:
+  - hero/opening text cluster
+  - support copy plus nearby proof object
+  - detail copy cluster beside a rail, thread, or inspector
+  - final CTA or primary action cluster
 - For code, read the changed files and any visible output or tests.
 - For docs, read the actual text rather than relying on summaries.
 
 Do not start revising from memory.
+Do not sign off on visual stability from a full-page screenshot alone when a tighter crop would reveal overlap, edge touch, or stranded text.
+Do not default to shrinking type, cutting copy, or stacking more rows if the tighter crop shows the zone simply needs more width.
 
 ### Step 2: Produce a bounded issue list
 
@@ -149,6 +164,9 @@ For frontend and design tasks, route the review to the narrowest critic skill th
 - brand signal and first impression -> `$frontend-brand-critic`
 - copy, wrapping, and helper text noise -> `$frontend-copy-critic`
 - clipping, spacing, contrast, and UI stability -> `$frontend-ui-auditor`
+
+After the first real draft of a text-heavy or bounded-copy surface, at least one `$frontend-ui-auditor` pass is mandatory before final signoff.
+Use zone and cluster screenshots for that pass rather than a full-page screenshot alone.
 
 When spawning the subagent, explicitly instruct it to read the critic skill. Do not assume it will infer the right skill on its own.
 
