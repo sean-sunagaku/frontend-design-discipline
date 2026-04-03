@@ -87,6 +87,7 @@ For visually led landing pages, app homes, dashboards, workflow views, detail vi
 The parent thread does not need to restate the full reviewer script each time. A short handoff to `$frontend-preflight-critic` should be enough because the default reviewer assumptions live in that skill.
 
 Do not let the first draft become the discovery phase. Discovery belongs in the packet.
+The packet should also lock structural layout discipline so the build uses real frames, wrappers, stacks, grids, or semantic containers rather than loose absolute placement.
 The packet should also lock spacing budget, text-cluster structure, and a review capture plan so overlap and text-fit problems are not discovered only at the final screenshot.
 It should also lock width and measure strategy so zones that need more horizontal room are widened intentionally instead of becoming vertically cramped later.
 It should explicitly reserve breathing corridors between side-by-side masses so "not overlapping" is not mistaken for "visually calm."
@@ -136,6 +137,8 @@ Make one focused pass that addresses the selected issues.
 - Do not introduce side quests unless they directly support the chosen fixes.
 - Prefer bigger structural fixes over micro-polish when a root cause exists.
 - If one issue makes another irrelevant, collapse the list.
+- If the layout is still built from loose absolute placements, stabilize the structure before polishing typography.
+- Prefer adding the correct parent wrapper, stack, auto layout, grid, or semantic container before tweaking local coordinates.
 
 ### Step 4: Run an independent review
 
